@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="menu__content">
       <div class="menu__logo">
-        <img src="../assets/img/menu/logo.png" alt="" />
+        <img src="../assets/img/menu/logo80px.png" alt="" />
       </div>
       <div class="menu__items">
         <div class="menu__item">
@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
-  margin-top: 60px;
+  margin-top: 5px;
   font-family: Century Gothic;
   font-style: normal;
   font-weight: normal;
@@ -59,7 +59,7 @@ export default {
   border-bottom: 1px solid #000000;
 }
 .menu__logo {
-  max-width: 38px;
+  max-width: 80px;
   width: 100%;
   img {
     width: 100%;
