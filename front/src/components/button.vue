@@ -1,6 +1,6 @@
 <template>
   <div class="button">
-    <div class="button__body">
+    <div v-if="up === false" class="button__body">
       <button>
         <svg
           width="35"
@@ -16,11 +16,27 @@
         </svg>
       </button>
     </div>
-    <div class="button__text">
+    <div v-if="up === false" class="button__text">
       <h4>
         {{ text }}
       </h4>
     </div>
+    <button>
+      <div v-if="up === true" class="button__bodyUp">
+        <svg
+          width="25"
+          height="35"
+          viewBox="0 0 25 35"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.494565 11.937C0.0122285 12.403 0.0122285 13.1787 0.494565 13.661C0.960606 14.1271 1.73625 14.1271 2.20121 13.661L10.943 4.91923L10.943 33.766C10.9441 34.4384 11.4786 34.9729 12.151 34.9729C12.8235 34.9729 13.3753 34.4384 13.3753 33.766L13.3753 4.91923L22.1008 13.661C22.5832 14.1271 23.3599 14.1271 23.8249 13.661C24.3072 13.1787 24.3072 12.402 23.8249 11.937L13.0136 1.12572C12.5475 0.643389 11.7719 0.643389 11.3069 1.12572L0.494565 11.937Z"
+            fill="#1E201D"
+          />
+        </svg>
+      </div>
+    </button>
   </div>
 </template>
 
@@ -30,6 +46,7 @@ export default {
   props: {
     color: String,
     text: String,
+    up: Boolean,
   },
   data: function () {
     return {};
@@ -85,6 +102,26 @@ export default {
     right: -10px;
     bottom: -70%;
     background: #c4c4c4;
+  }
+}
+
+.button__bodyUp {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 0px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  transform: rotate(25.6deg);
+  svg {
+    transform: rotate(-25.6deg);
+  }
+  &:hover {
+    box-shadow: 3px 8px 8px rgba(148, 148, 148, 0.41);
+  }
+  &:active {
+    box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
   }
 }
 </style>

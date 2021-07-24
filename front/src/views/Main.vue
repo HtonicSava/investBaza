@@ -3,6 +3,7 @@
     <div class="container">
       <Menu />
       <HeaderBlock />
+      <Investment />
     </div>
   </div>
 </template>
@@ -10,11 +11,13 @@
 <script>
 import Menu from "../components/menu.vue";
 import HeaderBlock from "../components/headBlock.vue";
+import Investment from "../components/investment.vue";
 
 export default {
   components: {
     Menu,
     HeaderBlock,
+    Investment,
   },
 };
 </script>
