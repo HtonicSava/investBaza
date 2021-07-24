@@ -9,7 +9,7 @@
 
 <script>
 import Menu from "../components/menu.vue";
-import HeaderBlock from "../components/headBlock.vue"
+import HeaderBlock from "../components/headBlock.vue";
 
 export default {
   components: {

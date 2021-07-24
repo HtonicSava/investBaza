@@ -77,8 +77,17 @@ export default {
   position: relative;
   cursor: pointer;
   transition: 0.2s;
-  &:hover{
-      font-weight: bold;
+
+  &:last-child {
+    font-weight: bold;
+  }
+
+  &:active {
+    color: #eb1717;
+  }
+
+  &:hover {
+    text-shadow: 3px 8px 8px rgba(148, 148, 148, 0.41);
   }
   p {
     margin-bottom: 0px;
