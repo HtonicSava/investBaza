@@ -68,6 +68,7 @@ export default {
 .investment {
   position: relative;
   padding-top: 170px;
+  margin-bottom: 310px;
   &::after {
     content: "";
     position: absolute;
@@ -87,6 +88,7 @@ export default {
   letter-spacing: -0.04em;
   color: #000000;
   margin-bottom: 50px;
+  margin-left: 20px;
   h3 {
     width: auto;
     display: inline;
@@ -94,8 +96,6 @@ export default {
     &::before {
       position: absolute;
       content: "";
-      // width: 600px;
-      // height: 120px;
       top: -10px;
       left: -20px;
       width: 120%;

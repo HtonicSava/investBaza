@@ -1,17 +1,15 @@
 <template>
-  <div class="button">
+  <div :class="{ 'button-red': color === 'red', button: color != 'red' }">
     <div v-if="up === false" class="button__body">
       <button>
         <svg
           width="35"
           height="25"
           viewBox="0 0 35 25"
-          fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M23.1101 0.51257C22.6441 0.0302339 21.8684 0.0302339 21.3861 0.51257C20.92 0.978611 20.92 1.75426 21.3861 2.21921L30.1279 10.961H1.28115C0.608699 10.9621 0.0742188 11.4966 0.0742188 12.169C0.0742188 12.8415 0.608699 13.3933 1.28115 13.3933H30.1279L21.3861 22.1188C20.92 22.6012 20.92 23.3779 21.3861 23.8429C21.8684 24.3252 22.6452 24.3252 23.1101 23.8429L33.9214 13.0316C34.4037 12.5655 34.4037 11.7899 33.9214 11.3249L23.1101 0.51257Z"
-            fill="#1E201D"
           />
         </svg>
       </button>
@@ -65,11 +63,18 @@ export default {
   color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
+  .button__body {
+    button {
+      svg {
+        fill: #1e201d;
+      }
+    }
+  }
 }
 
 .button__body {
-  width: 96px;
-  height: 96px;
+  width: 86px;
+  height: 86px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +127,32 @@ export default {
   }
   &:active {
     box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
+  }
+}
+
+.button-red {
+  font-family: Century Gothic;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 87.8%;
+  letter-spacing: -0.015em;
+  color: rgba(0, 0, 0, 1);
+  display: flex;
+  align-items: center;
+  .button__body {
+    border: 1px solid #eb1717;
+    button {
+      background-color: #eb1717;
+      svg {
+        fill: #ffffff;
+      }
+    }
+  }
+  .button__text {
+    &::after {
+      background: #ee3838;
+    }
   }
 }
 </style>

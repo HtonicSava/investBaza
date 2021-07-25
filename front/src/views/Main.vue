@@ -4,6 +4,10 @@
       <Menu />
       <HeaderBlock />
       <Investment />
+      <Conditions />
+      <Creator />
+      <Detailed />
+      <Calculator />
     </div>
   </div>
 </template>
@@ -12,12 +16,20 @@
 import Menu from "../components/menu.vue";
 import HeaderBlock from "../components/headBlock.vue";
 import Investment from "../components/investment.vue";
+import Conditions from "../components/conditions.vue";
+import Creator from "../components/creator.vue";
+import Detailed from "../components/detailed.vue";
+import Calculator from "../components/calculator.vue";
 
 export default {
   components: {
     Menu,
     HeaderBlock,
     Investment,
+    Conditions,
+    Creator,
+    Detailed,
+    Calculator,
   },
 };
 </script>
