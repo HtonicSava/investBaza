@@ -21,7 +21,6 @@
             track-fill-color="#E84C4C"
             thumb-color="#E84C4C"
             :max="100000000"
-            :min="10000"
           ></v-slider>
         </div>
       </div>
@@ -42,19 +41,18 @@
             track-fill-color="#E84C4C"
             thumb-color="#E84C4C"
             :max="100000000"
-            :min="10000"
           ></v-slider>
         </div>
       </div>
+      <div class="calculator__resultTitle">
+        <h2>Ваш ежемясечный доход</h2>
+      </div>
       <div class="calculator__result">
-        <div class="calculator__resultTitle">
-          <h2>Ваш ежемясечный доход</h2>
-        </div>
         <div class="calculator__resultMessage">
           <p>В среднем прибыль в месяц составляет 5-7%</p>
         </div>
         <div class="calculator__resultOutput">
-          <p></p>
+          <p>{{ finalValue }}руб</p>
         </div>
       </div>
     </div>
@@ -67,9 +65,16 @@ export default {
   name: "calculator",
   data: function () {
     return {
-      investValue: "",
-      reinvestValue: "",
+      investValue: 0,
+      reinvestValue: 0,
     };
+  },
+  computed: {
+    finalValue: function () {
+      return Math.floor(
+        (Number(this.investValue) + Number(this.reinvestValue)) * 0.06
+      );
+    },
   },
 };
 </script>
@@ -123,7 +128,7 @@ export default {
   font-family: Century Gothic;
   font-style: normal;
   font-weight: normal;
-  font-size: 21px;
+  font-size: 25px;
   line-height: 87.8%;
   letter-spacing: -0.015em;
   color: #000000;
@@ -132,6 +137,7 @@ export default {
 .calculator__input {
   margin-right: 50px;
   input {
+    font-size: 20px;
     padding: 20px;
     width: 152px;
     height: 68px;
@@ -148,6 +154,26 @@ export default {
 }
 .calculator__range {
   width: 350px;
+  position: relative;
+  font-family: Century Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 87.8%;
+  letter-spacing: -0.015em;
+  color: rgba(0, 0, 0, 0.7);
+  &::before {
+    content: "10000";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  &::after {
+    content: "100 млн";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 .calculator__rangeTitle {
   font-family: Century Gothic;
@@ -173,11 +199,63 @@ export default {
   }
 }
 .calculator__result {
+  display: flex;
 }
 .calculator__resultTitle {
+  font-family: Century Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 87.8%;
+  /* or 32px */
+  letter-spacing: -0.015em;
+  color: #000000;
+  margin-bottom: 30px;
+  h2 {
+    position: relative;
+    &::after {
+      position: absolute;
+      bottom: -12px;
+      left: 0px;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: #eb1717;
+    }
+  }
 }
 .calculator__resultMessage {
+  padding-right: 70px;
+  padding-top: 20px;
+  font-family: Century Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 87.8%;
+  letter-spacing: -0.015em;
+  color: #000000;
+  width: 300px;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: "";
+    width: 86px;
+    height: 65px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(235, 23, 23, 0.76);
+    transform: translate(-60%, -20%);
+    left: 0px;
+    z-index: -1;
+  }
 }
 .calculator__resultOutput {
+  width: 400px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 5px 5px rgba(142, 142, 142, 0.25);
+  font-size: 20px;
 }
 </style>

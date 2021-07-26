@@ -8,6 +8,7 @@
       <Creator />
       <Detailed />
       <Calculator />
+      <TargetsOfInvestment />
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@ import Conditions from "../components/conditions.vue";
 import Creator from "../components/creator.vue";
 import Detailed from "../components/detailed.vue";
 import Calculator from "../components/calculator.vue";
+import TargetsOfInvestment from "../components/targetsOfInvestment.vue";
 
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     Creator,
     Detailed,
     Calculator,
+    TargetsOfInvestment,
   },
 };
 </script>
