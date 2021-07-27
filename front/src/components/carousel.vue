@@ -1,6 +1,6 @@
 <template>
   <div class="carousel">
-    <div class="carousel__body">
+    <div :class="{'carousel__body-rightimg':rightimg == true, 'carousel__body-topimg':topimg == true}" class="carousel__body">
       <div  class="carousel__picture">
         <img
           ref="image"
@@ -8,7 +8,7 @@
           alt=""
           srcset=""
         />
-            <div @click="leftClick" class="carousel__button" >
+        <div @click="leftClick" class="carousel__button" >
           <svg
             width="22"
             height="42"
@@ -51,16 +51,15 @@ export default {
   name: "carousel",
   props: {
     photos: Array,
+    rightimg: Boolean,
+    topimg: Boolean,
   },
   data: function () {
     return {
-      currentPhoto: 1,
+      currentPhoto: 0,
     };
   },
   methods: {
-    getImgUrl(pic) {
-      return require(pic);
-    },
     leftClick: function() {
         this.transition()
         setTimeout(() => {
@@ -70,9 +69,6 @@ export default {
             this.currentPhoto = this.photos.length - 1
         }
         }, 500);
-
-        
-
     },
     rightClick: function() {
 
@@ -88,10 +84,7 @@ export default {
         
     },
     transition: function() {
-        // this.$refs.image.style.transition = 'none'
         this.$refs.image.style.opacity = 0
-        // this.$refs.image.style.transition = '0.2s'
-        // this.$refs.image.style.transition = '0.5s'
         setTimeout(() => this.$refs.image.style.opacity = 1, 499);
         
 
@@ -102,15 +95,22 @@ export default {
 
 <style lang="scss" scoped>
 .carousel {
-  height: 750px;
+  
 }
 .carousel__body {
   border: 3px solid #515151;
   display: flex;
   justify-content: space-between;
 }
+
+.carousel__body-rightimg{
+  flex-direction: row-reverse;
+}
+
+
+
 .carousel__picture {
-  flex-basis: 50%;
+  flex-basis: 45%;
   position: relative;
   img {
     max-width: 100%;
@@ -149,7 +149,17 @@ export default {
 }
 
 .carousel__text {
-  flex-basis: 50%;
-  padding: 110px 50px 0px;
+  flex-basis: 55%;
+  padding: 50px 50px 50px;
+}
+
+.carousel__body-topimg{
+  flex-direction: column;
+  .carousel__picture{
+    flex-basis: unset;
+  }
+  .carousel__text{
+    flex-basis: unset;
+  }
 }
 </style>

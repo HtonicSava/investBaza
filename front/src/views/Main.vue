@@ -9,6 +9,7 @@
       <Detailed />
       <Calculator />
       <TargetsOfInvestment />
+      <Documents />
     </div>
   </div>
 </template>
@@ -22,6 +23,7 @@ import Creator from "../components/creator.vue";
 import Detailed from "../components/detailed.vue";
 import Calculator from "../components/calculator.vue";
 import TargetsOfInvestment from "../components/targetsOfInvestment.vue";
+import Documents from "../components/documents.vue";
 
 export default {
   components: {
@@ -33,6 +35,7 @@ export default {
     Detailed,
     Calculator,
     TargetsOfInvestment,
+    Documents,
   },
 };
 </script>
