@@ -1,17 +1,17 @@
 <template>
   <div class="map">
-      <div class="map__title">
-          <h3>
-              Мы находимся
-          </h3>
-      </div>
-      <div class="map__img">
-        <img src="../assets/img/map/item.png" alt="">
-
-      </div>
-      <div class="map__text">
-          <p>Адрес: Республика Крым, Севастополь, ул. Маяковского, д. 8, оф. 308 299011</p>
-      </div>
+    <div class="map__title">
+      <h3>Мы находимся</h3>
+    </div>
+    <div class="map__img">
+      <img src="../assets/img/map/item.png" alt="" />
+    </div>
+    <div class="map__text">
+      <p>
+        Адрес: Республика Крым, Севастополь, ул. Маяковского, д. 8, оф. 308
+        299011
+      </p>
+    </div>
   </div>
 </template>
 
@@ -21,16 +21,16 @@ export default {
   data: function () {
     return {};
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.map{
-    margin-top: 150px;
-    margin-bottom: 200px;
+.map {
+  margin-top: 150px;
+  padding-bottom: 200px;
 }
 
-.map__title{
+.map__title {
   font-style: normal;
   font-weight: normal;
   font-size: 55px;
@@ -58,22 +58,22 @@ export default {
   }
 }
 
-.map__img{
-    img{
-        max-width: 100%;
-        width: auto;
-    }
+.map__img {
+  img {
+    max-width: 100%;
+    width: auto;
+  }
 }
 
-.map__text{
-    margin-top: 50px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 100%;
-    letter-spacing: -0.025em;
-    color: #000000;
-    margin-left: 70px;
-    width: 440px;
+.map__text {
+  margin-top: 50px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.025em;
+  color: #000000;
+  margin-left: 70px;
+  width: 440px;
 }
 </style>

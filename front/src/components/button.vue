@@ -14,7 +14,11 @@
         </svg>
       </button>
     </div>
-    <div v-if="up === false" class="button__text">
+    <div
+      v-if="up === false"
+      class="button__text"
+      :class="{ noLine: noLine === true }"
+    >
       <h4>
         {{ text }}
       </h4>
@@ -45,6 +49,7 @@ export default {
     color: String,
     text: String,
     up: Boolean,
+    noLine: Boolean,
   },
   data: function () {
     return {};
@@ -107,6 +112,12 @@ export default {
     right: -10px;
     bottom: -70%;
     background: #c4c4c4;
+  }
+}
+
+.noLine {
+  &::after {
+    content: none;
   }
 }
 

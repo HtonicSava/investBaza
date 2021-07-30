@@ -1,41 +1,82 @@
 <template>
-  <div class="questions">
-    <div class="questions__title">
-      <h3>У вас остались вопросы?</h3>
-    </div>
-    <div class="questions__content">
-      <div class="form">
-        <input
-          class="form__name"
-          type="text"
-          name=""
-          id=""
-          placeholder="Ваше имя"
-        />
-        <input
-          class="form__number"
-          type="number"
-          name=""
-          id=""
-          placeholder="Телефон"
-        />
-        <textarea class="form__question" placeholder="Вопрос" />
-        <div class="form__button">
-          <CusButton :color="'red'" :text="'Получить консультацию'" />
-        </div>
-        <input
-          type="checkbox"
-          class="custom-checkbox"
-          id="check"
-          name="happy"
-          value="yes"
-        />
-        <label for="check"
-          >Я соглашаюсь с правилами
-          <a href="#">&nbsp; политики конфиденциальности</a>
-        </label>
+  <div class="form">
+    <div v-if="login === true">
+      <input
+        class="form__name"
+        type="text"
+        name=""
+        id=""
+        placeholder="Телефон или email"
+      />
+
+      <input
+        class="form__name"
+        type="password"
+        name=""
+        id=""
+        placeholder="Пароль"
+        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
+      />
+
+      <div class="form__button">
+        <CusButton :noLine="true" :color="'red'" :text="'Войти'" />
       </div>
     </div>
+    <div v-else>
+      <input
+        class="form__name"
+        type="text"
+        name=""
+        id=""
+        placeholder="Телефон"
+      />
+
+      <input class="form__name" type="text" name="" id="" placeholder="Почта" />
+
+      <input
+        class="form__name"
+        type="text"
+        name=""
+        id=""
+        placeholder="Имя Фамилия"
+      />
+
+      <input
+        class="form__name"
+        type="text"
+        name=""
+        id=""
+        placeholder="Страна"
+      />
+
+      <input
+        class="form__name"
+        type="password"
+        name=""
+        id=""
+        placeholder="Пароль"
+        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
+      />
+
+      <input
+        class="form__name"
+        type="password"
+        name=""
+        id=""
+        placeholder="Пароль"
+        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
+      />
+
+      <div class="form__button">
+        <CusButton :noLine="true" :color="'red'" :text="'Зарегистрироваться'" />
+      </div>
+    </div>
+
+    <input type="checkbox" class="custom-checkbox" id="check" value="yes" />
+    <label for="check"
+      >Я соглашаюсь с правилами
+      <a href="#">&nbsp; политики конфиденциальности</a>
+    </label>
   </div>
 </template>
 
@@ -43,56 +84,25 @@
 import CusButton from "./button.vue";
 
 export default {
-  name: "questions",
+  name: "form",
+  props: {
+    login: Boolean,
+  },
   components: {
     CusButton,
   },
   data: function () {
-    return {};
+    return {
+      showpas: false,
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.questions {
-  margin-top: 150px;
-}
-
-.questions__title {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 55px;
-  line-height: 76.69%;
-  letter-spacing: -0.04em;
-  color: #000000;
-  margin-right: 100px;
-  margin-bottom: 150px;
-  text-align: right;
-  h3 {
-    width: auto;
-    display: inline;
-    position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -70px;
-      width: 120%;
-      height: 150%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
-  }
-}
-
-.questions__content {
-}
-
 .form {
-  max-width: 800px;
+  max-width: 600px;
   background: #f6f6f6;
-  border: 3px solid #515151;
   display: flex;
   flex-direction: column;
   padding: 50px 80px;
@@ -100,12 +110,11 @@ export default {
   input {
     margin-bottom: 40px;
     width: 100%;
-    background: #f6f6f6;
-    border-radius: 20px;
+    background: #ffffff;
     border-style: solid;
-    border-width: 3px;
+    border-width: 1px;
     border-color: #515151;
-    padding: 40px 50px;
+    padding: 22px 26px;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -162,7 +171,7 @@ export default {
   font-family: Century Gothic;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 87.8%;
   /* or 11px */
 

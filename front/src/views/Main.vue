@@ -1,21 +1,23 @@
 <template>
   <div>
-    <div class="container">
-      <Menu />
-      <HeaderBlock />
-      <Investment />
-      <Conditions />
-      <Creator />
-      <Detailed />
-      <Calculator />
-      <TargetsOfInvestment />
-      <Documents />
-      <Plan />
-      <Road />
-      <Reviews />
-      <Questions />
-      <Inst />
-      <Map />
+    <div class="main">
+      <div class="container">
+        <Menu />
+        <HeaderBlock />
+        <Investment />
+        <Conditions />
+        <Creator />
+        <Detailed />
+        <Calculator />
+        <TargetsOfInvestment />
+        <Documents />
+        <Plan />
+        <Road />
+        <Reviews />
+        <Questions />
+        <Inst />
+        <Map />
+      </div>
     </div>
     <CusFooter />
   </div>
@@ -35,9 +37,9 @@ import Plan from "../components/plan.vue";
 import Road from "../components/road.vue";
 import Reviews from "../components/reviews.vue";
 import Questions from "../components/questions.vue";
-import Inst from "../components/inst.vue"
-import Map from "../components/map.vue"
-import CusFooter from "../components/cusFooter.vue"
+import Inst from "../components/inst.vue";
+import Map from "../components/map.vue";
+import CusFooter from "../components/cusFooter.vue";
 
 export default {
   components: {
@@ -64,11 +66,14 @@ export default {
 <style lang="scss" scoped>
 // font-family: "Century Gothic";
 // font-family: "Padauk";
+.main {
+  background: linear-gradient(#ffffff, #d8d8d8);
+}
+
 .container {
   max-width: 1220px;
   padding: 0px 10px;
   width: 100%;
   margin: auto;
-  background: linear-gradient(179.92deg, #FFFFFF 6.35%, rgba(255, 255, 255, 0.733635) 93.55%, rgba(216, 216, 216, 0) 141.79%);
 }
 </style>

@@ -1,14 +1,20 @@
 <template>
   <div class="carousel">
-    <div :class="{'carousel__body-rightimg':rightimg == true, 'carousel__body-topimg':topimg == true}" class="carousel__body">
-      <div  class="carousel__picture">
+    <div
+      :class="{
+        'carousel__body-rightimg': rightimg == true,
+        'carousel__body-topimg': topimg == true,
+      }"
+      class="carousel__body"
+    >
+      <div class="carousel__picture">
         <img
           ref="image"
           :src="require('@/assets/img/carousel/' + photos[currentPhoto] + '')"
           alt=""
           srcset=""
         />
-        <div @click="leftClick" class="carousel__button" >
+        <div @click="leftClick" class="carousel__button">
           <svg
             width="22"
             height="42"
@@ -22,7 +28,7 @@
             />
           </svg>
         </div>
-        <div  @click="rightClick" class="carousel__button">
+        <div @click="rightClick" class="carousel__button">
           <svg
             width="22"
             height="42"
@@ -36,7 +42,6 @@
             />
           </svg>
         </div>
-
       </div>
       <div class="carousel__text">
         <slot></slot>
@@ -60,42 +65,36 @@ export default {
     };
   },
   methods: {
-    leftClick: function() {
-        this.transition()
-        setTimeout(() => {
+    leftClick: function () {
+      this.transition();
+      setTimeout(() => {
         if (this.currentPhoto > 0) {
-            this.currentPhoto--
-        } else{
-            this.currentPhoto = this.photos.length - 1
+          this.currentPhoto--;
+        } else {
+          this.currentPhoto = this.photos.length - 1;
         }
-        }, 500);
+      }, 500);
     },
-    rightClick: function() {
-
-        this.transition()
-        setTimeout(() => {
-            if (this.currentPhoto < this.photos.length - 1) {
-            this.currentPhoto++
-        } else{
-            this.currentPhoto = 0
+    rightClick: function () {
+      this.transition();
+      setTimeout(() => {
+        if (this.currentPhoto < this.photos.length - 1) {
+          this.currentPhoto++;
+        } else {
+          this.currentPhoto = 0;
         }
-        }, 500);
-        
-        
+      }, 500);
     },
-    transition: function() {
-        this.$refs.image.style.opacity = 0
-        setTimeout(() => this.$refs.image.style.opacity = 1, 499);
-        
-
-    }
+    transition: function () {
+      this.$refs.image.style.opacity = 0;
+      setTimeout(() => (this.$refs.image.style.opacity = 1), 499);
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .carousel {
-  
 }
 .carousel__body {
   border: 3px solid #515151;
@@ -103,11 +102,9 @@ export default {
   justify-content: space-between;
 }
 
-.carousel__body-rightimg{
+.carousel__body-rightimg {
   flex-direction: row-reverse;
 }
-
-
 
 .carousel__picture {
   flex-basis: 45%;
@@ -132,7 +129,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &:nth-child(2) {
     left: 20px;
   }
@@ -145,7 +142,6 @@ export default {
   &:active {
     box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
   }
-  
 }
 
 .carousel__text {
@@ -153,12 +149,12 @@ export default {
   padding: 50px 50px 50px;
 }
 
-.carousel__body-topimg{
+.carousel__body-topimg {
   flex-direction: column;
-  .carousel__picture{
+  .carousel__picture {
     flex-basis: unset;
   }
-  .carousel__text{
+  .carousel__text {
     flex-basis: unset;
   }
 }

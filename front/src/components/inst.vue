@@ -1,12 +1,12 @@
 <template>
   <div class="inst">
-      <div class="inst__title">
-          <h3>Наш инстаграмм</h3>
-      </div>
-      <div class="inst__content">
-          <img src="../assets/img/inst/item.png" alt="" srcset="">
-          <img src="../assets/img/inst/qr.png" alt="" srcset="">
-      </div>
+    <div class="inst__title">
+      <h3>Наш инстаграмм</h3>
+    </div>
+    <div class="inst__content">
+      <img src="../assets/img/inst/item.png" alt="" srcset="" />
+      <img src="../assets/img/inst/qr.png" alt="" srcset="" />
+    </div>
   </div>
 </template>
 
@@ -16,16 +16,16 @@ export default {
   data: function () {
     return {};
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.inst{
-margin-top: 150px;
+.inst {
+  margin-top: 150px;
 }
 
-.inst__title{
-    font-style: normal;
+.inst__title {
+  font-style: normal;
   font-weight: normal;
   font-size: 55px;
   line-height: 76.69%;
@@ -52,16 +52,15 @@ margin-top: 150px;
   }
 }
 
-.inst__content{
-    margin: auto;
-    max-width: 1000px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    img{
-        max-width: 100%;
-        width: auto;
-    }
+.inst__content {
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  img {
+    max-width: 100%;
+    width: auto;
+  }
 }
-
 </style>

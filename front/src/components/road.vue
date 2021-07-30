@@ -1,6 +1,6 @@
 <template>
   <div class="road">
-      <img src="../assets/img/road/item.png" alt="">
+    <img src="../assets/img/road/item.png" alt="" />
   </div>
 </template>
 
@@ -10,16 +10,15 @@ export default {
   data: function () {
     return {};
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.road{
-    position: relative;
-    img{
-        max-width: 100%;
-        width: auto;
-    }
+.road {
+  position: relative;
+  img {
+    max-width: 100%;
+    width: auto;
+  }
 }
-
 </style>
