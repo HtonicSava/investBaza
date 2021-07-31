@@ -19,6 +19,11 @@ const routes = [
     name: "Redistry",
     component: () => import("@/views/Registry.vue"),
   },
+  {
+    path: "/personal",
+    name: "Personal",
+    component: () => import("@/views/PersonalAccount.vue"),
+  },
 ];
 
 const router = new VueRouter({
