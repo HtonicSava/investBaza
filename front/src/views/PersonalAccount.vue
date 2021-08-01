@@ -117,7 +117,8 @@
         <div class="content__conditions">
           <p>Условия для инвестирования</p>
         </div>
-        <Main />
+        <Main v-if="false"/>
+        <Verification v-if="true"/>
       </div>
       <div class="sidemenu">
         <div class="sidemenu__top">
@@ -232,10 +233,12 @@
 
 <script>
 import Main from "../components/personal_account/main.vue";
+import Verification from "../components/personal_account/verification.vue"
 
 export default {
   components: {
     Main,
+    Verification,
   },
   data: function () {
     return {
@@ -321,6 +324,7 @@ export default {
 }
 
 .content {
+  padding-bottom: 170px;
 }
 
 .sidemenu {
