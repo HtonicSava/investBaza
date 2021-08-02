@@ -1,5 +1,11 @@
 <template>
-  <div :class="{ 'button-red': color === 'red', button: color != 'red', 'disabled': disabled === true }">
+  <div
+    :class="{
+      'button-red': color === 'red',
+      button: color != 'red',
+      disabled: disabled === true,
+    }"
+  >
     <div v-if="up === false" class="button__body">
       <button v-on:click="disabled ? '' : $emit('cus-click')">
         <svg
@@ -168,9 +174,9 @@ export default {
   }
 }
 
-.disabled{
+.disabled {
   opacity: 0.3;
-  button{
+  button {
     cursor: default;
     &:hover {
       box-shadow: 0px 0px 0px rgba(148, 148, 148, 0.41);
@@ -179,6 +185,5 @@ export default {
       box-shadow: inset 0px 0px 0px rgba(29, 6, 6, 0.25);
     }
   }
-  
 }
 </style>

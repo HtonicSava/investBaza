@@ -23,84 +23,87 @@
       </div>
     </div>
     <div v-else>
-      
       <div class="form__wrapper">
         <v-text-field
-            :rules="[rules.required]"
-            v-model="reg.phone"
-            outlined
-            clearable
-            single-line
-            placeholder='Телефон'
-            color='black'
-        ></v-text-field>
-      </div>
-      <div class="form__wrapper">
-        <v-text-field
-            :rules="[rules.required]"
-            v-model="reg.email"
-            outlined
-            clearable
-            single-line
-            placeholder='Почта'
-            color='black'
+          :rules="[rules.required]"
+          v-model="reg.phone"
+          outlined
+          clearable
+          single-line
+          placeholder="Телефон"
+          color="black"
         ></v-text-field>
       </div>
       <div class="form__wrapper">
         <v-text-field
-            :rules="[rules.required]"
-            v-model="reg.name"
-            outlined
-            clearable
-            single-line
-            placeholder='Имя'
-            color='black'
+          :rules="[rules.required]"
+          v-model="reg.email"
+          outlined
+          clearable
+          single-line
+          placeholder="Почта"
+          color="black"
         ></v-text-field>
       </div>
-        <div class="form__wrapper">
+      <div class="form__wrapper">
         <v-text-field
-            :rules="[rules.required]"
-            v-model="reg.surname"
-            outlined
-            clearable
-            single-line
-            placeholder='Фамилия'
-            color='black'
+          :rules="[rules.required]"
+          v-model="reg.name"
+          outlined
+          clearable
+          single-line
+          placeholder="Имя"
+          color="black"
         ></v-text-field>
       </div>
-        <div class="form__wrapper">
+      <div class="form__wrapper">
         <v-text-field
-            :rules="[rules.required]"
-            v-model="reg.country"
-            outlined
-            clearable
-            single-line
-            placeholder='Страна'
-            color='black'
+          :rules="[rules.required]"
+          v-model="reg.surname"
+          outlined
+          clearable
+          single-line
+          placeholder="Фамилия"
+          color="black"
         ></v-text-field>
       </div>
-        <div class="form__wrapper">
+      <div class="form__wrapper">
         <v-text-field
-            v-model="reg.password"
-            outlined
-            single-line
-            placeholder='Пароль'
-            color='black'
-            :type="reg.showpas ? 'text' : 'password'"
-            :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="reg.showpas = !reg.showpas"
+          :rules="[rules.required]"
+          v-model="reg.country"
+          outlined
+          clearable
+          single-line
+          placeholder="Страна"
+          color="black"
         ></v-text-field>
       </div>
-        <div class="form__wrapper">
+      <div class="form__wrapper">
         <v-text-field
-            v-model="reg.passwordRepeat"
-            outlined
-            placeholder='Повторите пароль'
-            color='black'
-            :type="reg.showpas ? 'text' : 'password'"
-            :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="reg.showpas = !reg.showpas"
-            :hint="(reg.password === reg.passwordRepeat) ? 'Пароли совпадают': 'Пароли должны совпадать!'"
+          v-model="reg.password"
+          outlined
+          single-line
+          placeholder="Пароль"
+          color="black"
+          :type="reg.showpas ? 'text' : 'password'"
+          :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="reg.showpas = !reg.showpas"
+        ></v-text-field>
+      </div>
+      <div class="form__wrapper">
+        <v-text-field
+          v-model="reg.passwordRepeat"
+          outlined
+          placeholder="Повторите пароль"
+          color="black"
+          :type="reg.showpas ? 'text' : 'password'"
+          :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="reg.showpas = !reg.showpas"
+          :hint="
+            reg.password === reg.passwordRepeat
+              ? 'Пароли совпадают'
+              : 'Пароли должны совпадать!'
+          "
         ></v-text-field>
       </div>
 
@@ -115,7 +118,13 @@
       </div>
     </div>
 
-    <input v-model="reg.agreement" type="checkbox" class="custom-checkbox" id="check" value="yes" />
+    <input
+      v-model="reg.agreement"
+      type="checkbox"
+      class="custom-checkbox"
+      id="check"
+      value="yes"
+    />
     <label for="check"
       >Я соглашаюсь с правилами
       <a href="#">&nbsp; политики конфиденциальности</a>
@@ -152,10 +161,10 @@ export default {
         passwordRepeat: "",
       },
       rules: {
-            required: value => !!value || 'Поле обязательно для заполнения!',
-            min: v => v.length >= 6 || 'Min 6 characters',
-            emailMatch: () => (`The email and password you entered don't match`),
-       },
+        required: (value) => !!value || "Поле обязательно для заполнения!",
+        min: (v) => v.length >= 6 || "Min 6 characters",
+        emailMatch: () => `The email and password you entered don't match`,
+      },
     };
   },
   methods: {
@@ -173,21 +182,31 @@ export default {
         })
         .then((res) => {
           if (res.status === 201) {
-            alert('Регистрация успешно завершена')
-            this.$router.push({ name: 'Personal' })
+            alert("Регистрация успешно завершена");
+            this.$router.push({ name: "Personal" });
           }
         })
         .catch((err) => {
           console.log(err);
-          alert('Ошибка при регистрации, попробуйте ещё раз')
+          alert("Ошибка при регистрации, попробуйте ещё раз");
         });
     },
   },
   computed: {
-    checkRegButton: function() {
-      return !((this.reg.email && this.reg.phone && this.reg.name && this.reg.surname && this.reg.country && this.reg.password && this.reg.passwordRepeat && this.reg.agreement) && (this.reg.password === this.reg.passwordRepeat))  
-    }
-  }
+    checkRegButton: function () {
+      return !(
+        this.reg.email &&
+        this.reg.phone &&
+        this.reg.name &&
+        this.reg.surname &&
+        this.reg.country &&
+        this.reg.password &&
+        this.reg.passwordRepeat &&
+        this.reg.agreement &&
+        this.reg.password === this.reg.passwordRepeat
+      );
+    },
+  },
 };
 </script>
 
@@ -207,7 +226,7 @@ export default {
     border-width: 1px;
     border-color: #515151;
     padding: 22px 26px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -297,12 +316,12 @@ export default {
   border-color: #ffbeb3;
 }
 
-.form__wrapper{
+.form__wrapper {
   z-index: 2;
   background-color: #ffffff;
   position: relative;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  &::after{
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  &::after {
     content: "";
     background-color: #f6f6f6;
     height: 33.3%;
@@ -313,15 +332,11 @@ export default {
     z-index: -1;
   }
 }
-
 </style>
-
-
 
 <style>
 /* // rewrite vuetify style */
- .v-messages{
-   font-size: 16px !important;
- }
+.v-messages {
+  font-size: 16px !important;
+}
 </style>
-
