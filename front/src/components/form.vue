@@ -1,26 +1,43 @@
 <template>
   <div class="form">
     <div v-if="login === true">
-      <input
-        class="form__name"
-        type="text"
-        name=""
-        id=""
-        placeholder="Телефон или email"
-      />
-
-      <input
-        class="form__name"
-        type="password"
-        name=""
-        id=""
-        placeholder="Пароль"
-        :append-icon="log.showpas ? 'mdi-eye' : 'mdi-eye-off'"
-      />
-
-      <div class="form__button">
-        <CusButton :noLine="true" :color="'red'" :text="'Войти'" />
+      <div class="form__wrapper">
+        <v-text-field
+        :rules="[rules.required]"
+        v-model="log.email"
+        outlined
+        clearable
+        single-line
+        placeholder="E - mail"
+        color="black"
+      ></v-text-field>
       </div>
+      <div class="form__wrapper">
+        <v-text-field
+          v-model="log.password"
+          outlined
+          single-line
+          placeholder="Пароль"
+          color="black"
+          :type="log.showpas ? 'text' : 'password'"
+          :append-icon="log.showpas ? 'mdi-eye' : 'mdi-eye-off'"
+          @click:append="log.showpas = !log.showpas"
+        ></v-text-field>
+      </div>
+      <div class="form__button">
+        <CusButton v-on:cus-click="sendLogData" :disabled="checkLogButton" :noLine="true" :color="'red'" :text="'Войти'" />
+      </div>
+      <input
+        v-model="log.agreement"
+        type="checkbox"
+        class="custom-checkbox"
+        id="check"
+        value="yes"
+      />
+      <label for="check"
+        >Я соглашаюсь с правилами
+        <a href="#">&nbsp; политики конфиденциальности</a>
+      </label>
     </div>
     <div v-else>
       <div class="form__wrapper">
@@ -116,19 +133,20 @@
           :text="'Зарегистрироваться'"
         />
       </div>
+      <input
+        v-model="reg.agreement"
+        type="checkbox"
+        class="custom-checkbox"
+        id="check"
+        value="yes"
+      />
+      <label for="check"
+        >Я соглашаюсь с правилами
+        <a href="#">&nbsp; политики конфиденциальности</a>
+      </label>
     </div>
 
-    <input
-      v-model="reg.agreement"
-      type="checkbox"
-      class="custom-checkbox"
-      id="check"
-      value="yes"
-    />
-    <label for="check"
-      >Я соглашаюсь с правилами
-      <a href="#">&nbsp; политики конфиденциальности</a>
-    </label>
+
   </div>
 </template>
 
@@ -147,7 +165,11 @@ export default {
   data: function () {
     return {
       log: {
+        agreement: false,
         showpas: false,
+        phone: "",
+        email: "",
+        password: "",
       },
       reg: {
         agreement: false,
@@ -168,9 +190,28 @@ export default {
     };
   },
   methods: {
+    sendLogData() {
+      let postQuery = "login/";
+      axios
+        .post(postQuery, {
+          password: this.log.password,
+          email: this.log.email,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            this.$router.push({ name: "Personal" });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("Ошибка входа, попробуйте ещё раз");
+        });
+    },
     sendRegData() {
-      console.log(this.reg);
+
       let postQuery = "profile/";
+      console.log(this.reg)
       axios
         .post(postQuery, {
           email: this.reg.email,
@@ -181,6 +222,7 @@ export default {
           country: this.reg.country,
         })
         .then((res) => {
+          console.log(res);
           if (res.status === 201) {
             alert("Регистрация успешно завершена");
             this.$router.push({ name: "Personal" });
@@ -206,6 +248,13 @@ export default {
         this.reg.password === this.reg.passwordRepeat
       );
     },
+    checkLogButton: function () {
+      return !(
+        this.log.email &&
+        this.log.password &&
+        this.log.agreement 
+      );
+    }
   },
 };
 </script>
