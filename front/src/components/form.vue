@@ -15,7 +15,7 @@
         name=""
         id=""
         placeholder="Пароль"
-        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
+        :append-icon="log.showpas ? 'mdi-eye' : 'mdi-eye-off'"
       />
 
       <div class="form__button">
@@ -23,56 +23,99 @@
       </div>
     </div>
     <div v-else>
-      <input
-        class="form__name"
-        type="text"
-        name=""
-        id=""
-        placeholder="Телефон"
-      />
-
-      <input class="form__name" type="text" name="" id="" placeholder="Почта" />
-
-      <input
-        class="form__name"
-        type="text"
-        name=""
-        id=""
-        placeholder="Имя Фамилия"
-      />
-
-      <input
-        class="form__name"
-        type="text"
-        name=""
-        id=""
-        placeholder="Страна"
-      />
-
-      <input
-        class="form__name"
-        type="password"
-        name=""
-        id=""
-        placeholder="Пароль"
-        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
-      />
-
-      <input
-        class="form__name"
-        type="password"
-        name=""
-        id=""
-        placeholder="Пароль"
-        :append-icon="showpas ? 'mdi-eye' : 'mdi-eye-off'"
-      />
+      
+      <div class="form__wrapper">
+        <v-text-field
+            :rules="[rules.required]"
+            v-model="reg.phone"
+            outlined
+            clearable
+            single-line
+            placeholder='Телефон'
+            color='black'
+        ></v-text-field>
+      </div>
+      <div class="form__wrapper">
+        <v-text-field
+            :rules="[rules.required]"
+            v-model="reg.email"
+            outlined
+            clearable
+            single-line
+            placeholder='Почта'
+            color='black'
+        ></v-text-field>
+      </div>
+      <div class="form__wrapper">
+        <v-text-field
+            :rules="[rules.required]"
+            v-model="reg.name"
+            outlined
+            clearable
+            single-line
+            placeholder='Имя'
+            color='black'
+        ></v-text-field>
+      </div>
+        <div class="form__wrapper">
+        <v-text-field
+            :rules="[rules.required]"
+            v-model="reg.surname"
+            outlined
+            clearable
+            single-line
+            placeholder='Фамилия'
+            color='black'
+        ></v-text-field>
+      </div>
+        <div class="form__wrapper">
+        <v-text-field
+            :rules="[rules.required]"
+            v-model="reg.country"
+            outlined
+            clearable
+            single-line
+            placeholder='Страна'
+            color='black'
+        ></v-text-field>
+      </div>
+        <div class="form__wrapper">
+        <v-text-field
+            v-model="reg.password"
+            outlined
+            single-line
+            placeholder='Пароль'
+            color='black'
+            :type="reg.showpas ? 'text' : 'password'"
+            :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="reg.showpas = !reg.showpas"
+        ></v-text-field>
+      </div>
+        <div class="form__wrapper">
+        <v-text-field
+            v-model="reg.passwordRepeat"
+            outlined
+            placeholder='Повторите пароль'
+            color='black'
+            :type="reg.showpas ? 'text' : 'password'"
+            :append-icon="reg.showpas ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="reg.showpas = !reg.showpas"
+            :hint="(reg.password === reg.passwordRepeat) ? 'Пароли совпадают': 'Пароли должны совпадать!'"
+        ></v-text-field>
+      </div>
 
       <div class="form__button">
-        <CusButton :noLine="true" :color="'red'" :text="'Зарегистрироваться'" />
+        <CusButton
+          v-on:cus-click="sendRegData"
+          :disabled="checkRegButton"
+          :noLine="true"
+          :color="'red'"
+          :text="'Зарегистрироваться'"
+        />
       </div>
     </div>
 
-    <input type="checkbox" class="custom-checkbox" id="check" value="yes" />
+    <input v-model="reg.agreement" type="checkbox" class="custom-checkbox" id="check" value="yes" />
     <label for="check"
       >Я соглашаюсь с правилами
       <a href="#">&nbsp; политики конфиденциальности</a>
@@ -82,6 +125,7 @@
 
 <script>
 import CusButton from "./button.vue";
+import axios from "@/service/axios.js";
 
 export default {
   name: "form",
@@ -93,9 +137,57 @@ export default {
   },
   data: function () {
     return {
-      showpas: false,
+      log: {
+        showpas: false,
+      },
+      reg: {
+        agreement: false,
+        showpas: false,
+        email: "",
+        phone: "",
+        name: "",
+        surname: "",
+        country: "",
+        password: "",
+        passwordRepeat: "",
+      },
+      rules: {
+            required: value => !!value || 'Поле обязательно для заполнения!',
+            min: v => v.length >= 6 || 'Min 6 characters',
+            emailMatch: () => (`The email and password you entered don't match`),
+       },
     };
   },
+  methods: {
+    sendRegData() {
+      console.log(this.reg);
+      let postQuery = "profile/";
+      axios
+        .post(postQuery, {
+          email: this.reg.email,
+          first_name: this.reg.name,
+          last_name: this.reg.surname,
+          password: this.reg.password,
+          phone: this.reg.phone,
+          country: this.reg.country,
+        })
+        .then((res) => {
+          if (res.status === 201) {
+            alert('Регистрация успешно завершена')
+            this.$router.push({ name: 'Personal' })
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          alert('Ошибка при регистрации, попробуйте ещё раз')
+        });
+    },
+  },
+  computed: {
+    checkRegButton: function() {
+      return !((this.reg.email && this.reg.phone && this.reg.name && this.reg.surname && this.reg.country && this.reg.password && this.reg.passwordRepeat && this.reg.agreement) && (this.reg.password === this.reg.passwordRepeat))  
+    }
+  }
 };
 </script>
 
@@ -115,6 +207,7 @@ export default {
     border-width: 1px;
     border-color: #515151;
     padding: 22px 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -203,4 +296,32 @@ export default {
 .custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
   border-color: #ffbeb3;
 }
+
+.form__wrapper{
+  z-index: 2;
+  background-color: #ffffff;
+  position: relative;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  &::after{
+    content: "";
+    background-color: #f6f6f6;
+    height: 33.3%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
 </style>
+
+
+
+<style>
+/* // rewrite vuetify style */
+ .v-messages{
+   font-size: 16px !important;
+ }
+</style>
+
