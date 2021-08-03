@@ -117,8 +117,9 @@
         <div class="content__conditions">
           <p>Условия для инвестирования</p>
         </div>
-        <Main v-if="false" />
-        <Verification v-if="true" /> 
+        <Main v-if="pages.Main" />
+        <Verification v-if="pages.Verification" />
+        <Investment v-if="pages.Investment" />
       </div>
       <div class="sidemenu">
         <div class="sidemenu__top">
@@ -213,8 +214,8 @@
         </div>
         <div class="sidemenu__links">
           <div class="sidemenu__linksContainer">
-            <p>Верификация</p>
-            <p>Мои инвестиции</p>
+            <p @click="changePage('Verification')">Верификация</p>
+            <p @click="changePage('Investment')">Мои инвестиции</p>
             <p>Моя команда</p>
             <p>Мой статус</p>
             <p>Вывод средств</p>
@@ -233,20 +234,33 @@
 
 <script>
 import Main from "../components/personal_account/main.vue";
-import Verification from "../components/personal_account/verification.vue"
+import Verification from "../components/personal_account/verification.vue";
+import Investment from "../components/personal_account/investment.vue";
 
 export default {
   components: {
     Main,
     Verification,
+    Investment,
   },
   data: function () {
     return {
+      pages: {
+        Main: true,
+        Verification: false,
+        Investment: false,
+      },
       photos: ["card1.png", "card1.png", "card1.png"],
       currentPhoto: 0,
     };
   },
   methods: {
+    changePage(page) {
+      for (const key in this.pages) {
+        this.pages[key] = false;
+      }
+      this.pages[page] = true;
+    },
     leftClick: function () {
       this.transition();
       setTimeout(() => {

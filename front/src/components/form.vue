@@ -3,14 +3,14 @@
     <div v-if="login === true">
       <div class="form__wrapper">
         <v-text-field
-        :rules="[rules.required]"
-        v-model="log.email"
-        outlined
-        clearable
-        single-line
-        placeholder="E - mail"
-        color="black"
-      ></v-text-field>
+          :rules="[rules.required]"
+          v-model="log.email"
+          outlined
+          clearable
+          single-line
+          placeholder="E - mail"
+          color="black"
+        ></v-text-field>
       </div>
       <div class="form__wrapper">
         <v-text-field
@@ -25,7 +25,13 @@
         ></v-text-field>
       </div>
       <div class="form__button">
-        <CusButton v-on:cus-click="sendLogData" :disabled="checkLogButton" :noLine="true" :color="'red'" :text="'Войти'" />
+        <CusButton
+          v-on:cus-click="sendLogData"
+          :disabled="checkLogButton"
+          :noLine="true"
+          :color="'red'"
+          :text="'Войти'"
+        />
       </div>
       <input
         v-model="log.agreement"
@@ -145,8 +151,6 @@
         <a href="#">&nbsp; политики конфиденциальности</a>
       </label>
     </div>
-
-
   </div>
 </template>
 
@@ -209,9 +213,8 @@ export default {
         });
     },
     sendRegData() {
-
       let postQuery = "profile/";
-      console.log(this.reg)
+      console.log(this.reg);
       axios
         .post(postQuery, {
           email: this.reg.email,
@@ -249,12 +252,8 @@ export default {
       );
     },
     checkLogButton: function () {
-      return !(
-        this.log.email &&
-        this.log.password &&
-        this.log.agreement 
-      );
-    }
+      return !(this.log.email && this.log.password && this.log.agreement);
+    },
   },
 };
 </script>
