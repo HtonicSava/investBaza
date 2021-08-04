@@ -120,6 +120,9 @@
         <Main v-if="pages.Main" />
         <Verification v-if="pages.Verification" />
         <Investment v-if="pages.Investment" />
+        <Team v-if="pages.Team"/>
+        <Status v-if="pages.Status"/>
+        <Finance v-if="pages.Finance"/>
       </div>
       <div class="sidemenu">
         <div class="sidemenu__top">
@@ -214,14 +217,13 @@
         </div>
         <div class="sidemenu__links">
           <div class="sidemenu__linksContainer">
-            <p @click="changePage('Verification')">Верификация</p>
-            <p @click="changePage('Investment')">Мои инвестиции</p>
-            <p>Моя команда</p>
-            <p>Мой статус</p>
-            <p>Вывод средств</p>
+            <p :class="{'sidemenu__link-active' : pages.Verification === true}" @click="changePage('Verification')">Верификация</p>
+            <p :class="{'sidemenu__link-active' : pages.Investment === true}" @click="changePage('Investment')">Мои инвестиции</p>
+            <p :class="{'sidemenu__link-active' : pages.Team === true}" @click="changePage('Team')">Моя команда</p>
+            <p :class="{'sidemenu__link-active' : pages.Status === true}" @click="changePage('Status')">Мой статус</p>
           </div>
           <div class="sidemenu__linksContainer">
-            <p>Финансы</p>
+            <p :class="{'sidemenu__link-active' : pages.Finance === true}" @click="changePage('Finance')" >Финансы</p>
             <p>Профиль</p>
             <p>Отчеты</p>
             <p>Новости</p>
@@ -236,12 +238,18 @@
 import Main from "../components/personal_account/main.vue";
 import Verification from "../components/personal_account/verification.vue";
 import Investment from "../components/personal_account/investment.vue";
+import Team from "../components/personal_account/team.vue";
+import Status from "../components/personal_account/status.vue";
+import Finance from "../components/personal_account/finance.vue";
 
 export default {
   components: {
     Main,
     Verification,
     Investment,
+    Team,
+    Status,
+    Finance,
   },
   data: function () {
     return {
@@ -249,6 +257,9 @@ export default {
         Main: true,
         Verification: false,
         Investment: false,
+        Team: false,
+        Status: false,
+        Finance: false,
       },
       photos: ["card1.png", "card1.png", "card1.png"],
       currentPhoto: 0,
@@ -337,6 +348,8 @@ export default {
   border-radius: 50%;
 }
 
+
+
 .content {
 }
 
@@ -404,6 +417,8 @@ export default {
   padding: 50px 30px;
 }
 
+
+
 .sidemenu__linksContainer {
   font-style: normal;
   font-weight: normal;
@@ -428,6 +443,10 @@ export default {
       text-shadow: 3px 8px 8px rgba(148, 148, 148, 0.41);
     }
   }
+}
+
+.sidemenu__link-active {
+  color: #eb1717;
 }
 
 .content__conditions {

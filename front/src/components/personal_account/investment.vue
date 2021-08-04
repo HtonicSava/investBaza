@@ -165,6 +165,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  row-gap: 50px;
   justify-items: center;
   padding: 60px 0px;
   font-size: 15px;

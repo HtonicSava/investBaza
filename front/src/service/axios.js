@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instanse = axios.create({
-  baseURL: "http://eb722eb9440d.ngrok.io/api/",
+  baseURL: "http://188.225.47.84:8000/api/",
+  // http://188.225.47.84:8000/api/
 });
 
 instanse.interceptors.request.use(
