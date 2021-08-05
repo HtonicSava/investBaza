@@ -120,9 +120,9 @@
         <Main v-if="pages.Main" />
         <Verification v-if="pages.Verification" />
         <Investment v-if="pages.Investment" />
-        <Team v-if="pages.Team"/>
-        <Status v-if="pages.Status"/>
-        <Finance v-if="pages.Finance"/>
+        <Team v-if="pages.Team" />
+        <Status v-if="pages.Status" />
+        <Finance v-if="pages.Finance" />
       </div>
       <div class="sidemenu">
         <div class="sidemenu__top">
@@ -217,13 +217,38 @@
         </div>
         <div class="sidemenu__links">
           <div class="sidemenu__linksContainer">
-            <p :class="{'sidemenu__link-active' : pages.Verification === true}" @click="changePage('Verification')">Верификация</p>
-            <p :class="{'sidemenu__link-active' : pages.Investment === true}" @click="changePage('Investment')">Мои инвестиции</p>
-            <p :class="{'sidemenu__link-active' : pages.Team === true}" @click="changePage('Team')">Моя команда</p>
-            <p :class="{'sidemenu__link-active' : pages.Status === true}" @click="changePage('Status')">Мой статус</p>
+            <p
+              :class="{ 'sidemenu__link-active': pages.Verification === true }"
+              @click="changePage('Verification')"
+            >
+              Верификация
+            </p>
+            <p
+              :class="{ 'sidemenu__link-active': pages.Investment === true }"
+              @click="changePage('Investment')"
+            >
+              Мои инвестиции
+            </p>
+            <p
+              :class="{ 'sidemenu__link-active': pages.Team === true }"
+              @click="changePage('Team')"
+            >
+              Моя команда
+            </p>
+            <p
+              :class="{ 'sidemenu__link-active': pages.Status === true }"
+              @click="changePage('Status')"
+            >
+              Мой статус
+            </p>
           </div>
           <div class="sidemenu__linksContainer">
-            <p :class="{'sidemenu__link-active' : pages.Finance === true}" @click="changePage('Finance')" >Финансы</p>
+            <p
+              :class="{ 'sidemenu__link-active': pages.Finance === true }"
+              @click="changePage('Finance')"
+            >
+              Финансы
+            </p>
             <p>Профиль</p>
             <p>Отчеты</p>
             <p>Новости</p>
@@ -348,8 +373,6 @@ export default {
   border-radius: 50%;
 }
 
-
-
 .content {
 }
 
@@ -416,8 +439,6 @@ export default {
   flex-direction: column;
   padding: 50px 30px;
 }
-
-
 
 .sidemenu__linksContainer {
   font-style: normal;

@@ -30,9 +30,11 @@
           name="happy"
           value="yes"
         />
-        <label for="check"
-          >Я соглашаюсь с правилами
-          <a href="#">&nbsp; политики конфиденциальности</a>
+        <label for="check">
+          <p>
+            Я соглашаюсь с правилами
+            <a href="#">&nbsp; политики конфиденциальности</a>
+          </p>
         </label>
       </div>
     </div>
@@ -56,6 +58,9 @@ export default {
 <style lang="scss" scoped>
 .questions {
   margin-top: 150px;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .questions__title {
@@ -193,5 +198,72 @@ export default {
 
 .custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
   border-color: #ffbeb3;
+}
+
+@media (max-width: 900px) {
+  .questions {
+    margin-top: 100px;
+  }
+
+  .questions__title {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+
+    h3 {
+      &::before {
+        top: -10px;
+        left: -5%;
+        width: 100%;
+        height: 150%;
+      }
+    }
+  }
+
+  .form {
+    max-width: 400px;
+    background: #f6f6f6;
+    border: 2px solid #515151;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 20px;
+
+    input {
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border-width: 2px;
+      padding: 10px 8px;
+      font-size: 16px;
+    }
+  }
+
+  .form__question {
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+
+  .custom-checkbox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    font-family: Century Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 87.8%;
+    /* or 11px */
+
+    letter-spacing: -0.015em;
+
+    color: #000000;
+    a {
+      color: red;
+    }
+  }
 }
 </style>

@@ -4,6 +4,18 @@
       <div class="menu__logo">
         <img src="../assets/img/menu/logo80px.png" alt="" />
       </div>
+      <div class="menu__burger">
+        <svg
+          width="31"
+          height="10"
+          viewBox="0 0 31 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="31" height="2" fill="black" />
+          <rect x="6" y="8" width="25" height="2" fill="black" />
+        </svg>
+      </div>
       <div class="menu__items">
         <div class="menu__item">
           <p>Главная</p>
@@ -65,6 +77,11 @@ export default {
     width: 100%;
   }
 }
+
+.menu__burger {
+  display: none;
+}
+
 .menu__items {
   display: flex;
   justify-content: flex-end;
@@ -111,6 +128,28 @@ export default {
       bottom: 0;
       background-color: #000000;
     }
+  }
+}
+
+@media (max-width: 1120px) {
+  .menu {
+    // display: none;
+  }
+  .menu__content {
+    border-bottom: none;
+    align-items: center;
+  }
+  .menu__logo {
+  }
+
+  .menu__burger {
+    display: block;
+  }
+
+  .menu__items {
+    display: none;
+  }
+  .menu__item {
   }
 }
 </style>

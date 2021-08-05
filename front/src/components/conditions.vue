@@ -71,9 +71,11 @@ export default {
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 .conditions__item {
-  flex-basis: 370px;
+  margin: 25px;
+  flex-basis: 320px;
   height: 200px;
   display: flex;
   align-items: center;
@@ -87,6 +89,7 @@ export default {
   line-height: 101.3%;
   letter-spacing: -0.015em;
   color: #000000;
+  padding: 0px 60px;
   p {
     margin-bottom: 0px;
   }
@@ -99,11 +102,36 @@ export default {
     }
   }
   &:nth-child(3) {
-    padding: 0px 60px;
   }
 }
 .conditions__button {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .conditions {
+    margin-bottom: 100px;
+  }
+  .conditions__title {
+    font-size: 25px;
+    margin-bottom: 70px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+  .conditions__items {
+  }
+  .conditions__item {
+    font-size: 16px;
+    flex-basis: 280px;
+  }
+  .conditions__button {
+  }
 }
 </style>

@@ -40,6 +40,34 @@
           />
         </svg>
       </div>
+      <div @click="leftClick" class="documents__button-mobile">
+        <svg
+          width="5"
+          height="9"
+          viewBox="0 0 5 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4.64975 0.00268459C4.75777 0.00248241 4.8455 0.0899153 4.8457 0.197941C4.84579 0.250019 4.82511 0.299989 4.78823 0.336774L0.623146 4.50147L4.78823 8.66616C4.86472 8.74264 4.86472 8.86664 4.78823 8.94312C4.71175 9.01961 4.58775 9.01961 4.51127 8.94312L0.208079 4.63994C0.131722 4.56356 0.131722 4.43975 0.208079 4.36336L4.51127 0.0601902C4.54794 0.023387 4.59778 0.00268459 4.64975 0.00268459Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+      <div @click="rightClick" class="documents__button-mobile">
+        <svg
+          width="5"
+          height="9"
+          viewBox="0 0 5 9"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.350251 8.99732C0.242225 8.99752 0.154499 8.91008 0.154297 8.80206C0.154205 8.74998 0.17489 8.70001 0.211767 8.66323L4.37685 4.49853L0.211767 0.333844C0.135281 0.257359 0.135281 0.133361 0.211767 0.0568757C0.288252 -0.0196096 0.41225 -0.0196096 0.488735 0.0568757L4.79192 4.36006C4.86828 4.43644 4.86828 4.56025 4.79192 4.63664L0.488735 8.93981C0.45206 8.97661 0.402219 8.99732 0.350251 8.99732Z"
+            fill="black"
+          />
+        </svg>
+      </div>
       <div class="documents__download">
         <svg
           width="17"
@@ -172,6 +200,10 @@ export default {
   }
 }
 
+.documents__button-mobile {
+  display: none;
+}
+
 .documents__download {
   display: flex;
   align-items: center;
@@ -189,6 +221,64 @@ export default {
   }
   &:active {
     box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
+  }
+}
+
+@media (max-width: 900px) {
+  .documents__title {
+    font-size: 30px;
+    margin-bottom: 100px;
+    margin-left: 60px;
+    h3 {
+      &::before {
+        top: -10px;
+        left: -40%;
+        width: 180%;
+        height: 150%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .documents__img {
+    img {
+      max-width: 80%;
+    }
+  }
+  .documents__button {
+    display: none;
+  }
+  .documents__button-mobile {
+    display: block;
+    cursor: pointer;
+    top: 50%;
+    position: absolute;
+    transform: translate(0%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:nth-child(4) {
+      left: 5px;
+    }
+    &:nth-child(5) {
+      right: 5px;
+    }
+    &:hover {
+      box-shadow: 3px 8px 8px rgba(148, 148, 148, 0.41);
+    }
+    &:active {
+      box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
+    }
+  }
+
+  .documents__download {
+    right: 0px;
   }
 }
 </style>

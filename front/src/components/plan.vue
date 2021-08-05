@@ -1,12 +1,12 @@
 <template>
   <div class="plan">
     <div class="plan__title">
-      <h3>Маркетинг план</h3>
-    </div>
-    <div class="plan__bigitemContainer">
       <div class="plan__button">
         <CusButton :up="true" />
       </div>
+      <h3>Маркетинг план</h3>
+    </div>
+    <div class="plan__bigitemContainer">
       <div class="plan__bigitem">
         <p>1 линия</p>
         <p>10% бонус</p>
@@ -84,6 +84,9 @@ export default {
   }
 }
 .plan__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-style: normal;
   font-weight: normal;
   font-size: 55px;
@@ -111,12 +114,12 @@ export default {
   }
 }
 .plan__button {
-  left: 0px;
-  position: absolute;
+  // left: 30px;
+  // position: absolute;
 }
 
 .plan__bigitemContainer {
-  position: relative;
+  // position: relative;
   display: flex;
   justify-content: center;
   margin-bottom: 120px;
@@ -177,5 +180,74 @@ export default {
   background: #f6f6f6;
   border: 3px solid #515151;
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .plan__title {
+    font-size: 30px;
+    margin-bottom: 100px;
+    margin-right: 20px;
+
+    h3 {
+      margin-left: 30px;
+      &::before {
+        top: -5%;
+        left: -15%;
+        width: 120%;
+        height: 120%;
+      }
+    }
+  }
+  .plan__bigitemContainer {
+    // position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .plan__bigitem {
+    width: 280px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    background: #f6f6f6;
+    border: 3px solid #515151;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 25px;
+    column-gap: 20px;
+    row-gap: 10px;
+    padding: 30px 20px;
+  }
+
+  .plan__tripleitemContainer {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 150px));
+    grid-gap: 20px;
+    justify-items: center;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .plan__doubleitemContainer {
+    max-width: 780px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(80px, 150px));
+    grid-gap: 20px;
+    justify-items: center;
+    margin-bottom: 120px;
+  }
+
+  .plan__item {
+    padding: 20px 10px;
+    font-size: 16px;
+  }
+
+  .plan__item-title {
+    padding: 20px 10px;
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
 </style>

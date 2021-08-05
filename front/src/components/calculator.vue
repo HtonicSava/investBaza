@@ -258,4 +258,10 @@ export default {
   box-shadow: inset 0px 5px 5px rgba(142, 142, 142, 0.25);
   font-size: 20px;
 }
+
+@media (max-width: 900px) {
+  .calculator {
+    display: none;
+  }
+}
 </style>

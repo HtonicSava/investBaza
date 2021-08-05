@@ -5,9 +5,14 @@
         <h3>Мой статус</h3>
       </div>
       <div class="status__content">
-          <div v-for="(item, i) in items" :key="i" class="status__item" :class="{'status__item-active': item.active}">
-              {{item.name}}
-          </div>
+        <div
+          v-for="(item, i) in items"
+          :key="i"
+          class="status__item"
+          :class="{ 'status__item-active': item.active }"
+        >
+          {{ item.name }}
+        </div>
       </div>
     </div>
   </div>
@@ -19,20 +24,20 @@ export default {
   name: "status",
   data: function () {
     return {
-        items: [
-            {
-                active: true,
-                name: 'A'
-            },
-            {
-                active: false,
-                name: 'B'
-            },
-            {
-                active: false,
-                name: 'C'
-            },
-        ]
+      items: [
+        {
+          active: true,
+          name: "A",
+        },
+        {
+          active: false,
+          name: "B",
+        },
+        {
+          active: false,
+          name: "C",
+        },
+      ],
     };
   },
 };
@@ -62,33 +67,32 @@ export default {
 }
 
 .status__content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .status__item {
-    color: #000000;
-    margin-right: 90px;
-    font-size: 22px;
-    width: 55px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFFFFF;
-    border: 1px solid #515151;
-    border-radius: 50%;
-    &:last-child{
-        margin-right: 0px;
-    }
+  color: #000000;
+  margin-right: 90px;
+  font-size: 22px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #515151;
+  border-radius: 50%;
+  &:last-child {
+    margin-right: 0px;
+  }
 }
 
 .status__item-active {
-    color: #FFFFFF;
-    background: #EB1717;
-    border-color: #EB1717;
-    width: 60px;
-    height: 60px;
+  color: #ffffff;
+  background: #eb1717;
+  border-color: #eb1717;
+  width: 60px;
+  height: 60px;
 }
 </style>

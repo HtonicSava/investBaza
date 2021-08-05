@@ -211,4 +211,54 @@ export default {
     margin-bottom: 0px;
   }
 }
+
+@media (max-width: 900px) {
+  .creator {
+    margin-bottom: 100px;
+  }
+  .creator__title {
+    font-size: 30px;
+    margin-bottom: 70px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+  .creator__button {
+    margin-bottom: 30px;
+  }
+  .creator__body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .creator__img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: auto;
+    height: auto;
+    img {
+      max-width: 80%;
+    }
+  }
+  .creator__text {
+    align-items: center;
+  }
+  .creator__textTitle {
+    margin-bottom: 40px;
+    font-size: 26px;
+  }
+  .creator__textItem {
+    align-self: flex-start;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  .creator__textNumber {
+  }
+  .creator__textDescription {
+  }
+}
 </style>

@@ -120,6 +120,9 @@ export default {
   height: auto;
 }
 .investment__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 500px;
   height: 500px;
   flex-grow: 0;
@@ -210,5 +213,67 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .investment {
+    margin-bottom: 100px;
+    &::after {
+      content: unset;
+    }
+  }
+  .investment__title {
+    font-size: 25px;
+  }
+  .investment__button {
+  }
+  .investment__body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .investment__img {
+    width: auto;
+    height: auto;
+    margin-bottom: 25px;
+    img {
+      max-width: 60%;
+      width: auto;
+    }
+  }
+  .investment__items {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .investment__item {
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+    }
+    width: auto;
+    &:nth-child(1) {
+      align-self: unset;
+    }
+    &:nth-child(2) {
+      align-self: unset;
+    }
+    &:nth-child(3) {
+      align-self: unset;
+    }
+    &:nth-child(4) {
+      align-self: unset;
+    }
+    &:nth-child(5) {
+      align-self: unset;
+    }
+  }
+  .investment__percent {
+  }
 }
 </style>

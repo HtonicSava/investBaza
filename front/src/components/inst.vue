@@ -59,8 +59,38 @@ export default {
   align-items: center;
   justify-content: space-evenly;
   img {
-    max-width: 100%;
+    max-width: 80%;
     width: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .inst__title {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-bottom: 100px;
+
+    h3 {
+      &::before {
+        top: -10px;
+        left: -10%;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+
+  .inst__content {
+    margin: auto;
+    max-width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    img {
+      max-width: 50%;
+      width: auto;
+      margin: 0px 10px;
+    }
   }
 }
 </style>

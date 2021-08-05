@@ -169,4 +169,56 @@ export default {
     transform: translate(-50%, -50%);
   }
 }
+
+@media (max-width: 900px) {
+  .reviews {
+    margin-top: 0px;
+  }
+
+  .reviews__head {
+    margin-bottom: 100px;
+  }
+
+  .reviews__title {
+    font-size: 30px;
+    margin-right: 25px;
+
+    h3 {
+      width: auto;
+      display: inline;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        top: -10px;
+        left: -40px;
+        width: 170%;
+        height: 170%;
+        border: 2px solid rgba(235, 23, 23, 0.7);
+        border-radius: 50%;
+        transform: rotate(-4.95deg);
+      }
+    }
+  }
+
+  .reviews__content {
+    flex-wrap: wrap;
+  }
+
+  .reviews__item {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .reviews__img {
+    margin-bottom: 20px;
+    img {
+      max-width: 90px;
+      width: auto;
+    }
+    svg {
+      display: none;
+    }
+  }
+}
 </style>

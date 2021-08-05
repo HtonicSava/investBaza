@@ -76,4 +76,35 @@ export default {
   margin-left: 70px;
   width: 440px;
 }
+
+@media (max-width: 900px) {
+  .map {
+    margin-top: 100px;
+    padding-bottom: 40px;
+  }
+  .map__title {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 70px;
+    h3 {
+      &::before {
+        top: -10px;
+        left: -10%;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+  .map__text {
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.025em;
+    color: #000000;
+    margin-left: 0px;
+    width: unset;
+  }
+}
 </style>

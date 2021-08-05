@@ -253,4 +253,46 @@ export default {
     margin-bottom: 0px;
   }
 }
+
+@media (max-width: 900px) {
+  .investment {
+    position: relative;
+    padding-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  .investment__title {
+    margin-bottom: 100px;
+    margin-right: 20px;
+    font-size: 30px;
+    margin-bottom: 70px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .investment__item {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  .item {
+    font-size: 26px;
+  }
+
+  .item__title {
+    margin-bottom: 25px;
+  }
+
+  .item__p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
 </style>

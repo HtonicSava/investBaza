@@ -76,4 +76,10 @@ export default {
   width: 100%;
   margin: auto;
 }
+
+@media (max-width: 1120px) {
+  .container {
+    padding: 0px 25px;
+  }
+}
 </style>

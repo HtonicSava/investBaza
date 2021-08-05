@@ -93,4 +93,25 @@ export default {
   letter-spacing: -0.025em;
   color: #000000;
 }
+
+@media (max-width: 900px) {
+  .cusFooter {
+    padding: 20px 0px;
+  }
+
+  .cusFooter__title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .cusFooter__links {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cusFooter__adress {
+    font-size: 20px;
+  }
+}
 </style>

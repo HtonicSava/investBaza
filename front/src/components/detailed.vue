@@ -4,7 +4,7 @@
       <h3>Подробнее</h3>
     </div>
     <div class="detailed__body">
-      <CusButton :up="true" />
+      <CusButton class="detailed__button" :up="true" />
       <div class="detailed__card">
         <div class="detailed__item">
           <div class="detailed__number">1</div>
@@ -160,5 +160,54 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .detailed {
+    margin-bottom: 100px;
+  }
+  .detailed__title {
+    font-size: 30px;
+    margin-bottom: 70px;
+    margin-left: 20px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 130%;
+        height: 150%;
+      }
+    }
+  }
+  .detailed__body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailed__card {
+    height: auto;
+    min-width: 280px;
+    width: 80%;
+    padding: 60px 20px;
+  }
+
+  .detailed__button {
+    align-self: flex-end;
+    margin-bottom: 40px;
+  }
+
+  .detailed__item {
+    margin-bottom: 10px;
+  }
+  .detailed__number {
+    margin-right: 10px;
+  }
+  .detailed__itemText {
+    font-size: 18px;
+  }
+  .detailed__itemSubText {
+    font-size: 12px;
+  }
+  .detailed__cardButton {
+  }
 }
 </style>

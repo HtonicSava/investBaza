@@ -186,4 +186,30 @@ export default {
     }
   }
 }
+
+@media (max-width: 900px) {
+  .button {
+    font-size: 14px;
+  }
+  .button-red {
+    font-size: 14px;
+    svg {
+      max-width: 20px;
+    }
+  }
+  .button__body {
+    width: 60px;
+    height: 60px;
+    svg {
+      max-width: 20px;
+    }
+  }
+  .button__bodyUp {
+    width: 60px;
+    height: 30px;
+    svg {
+      max-width: 15px;
+    }
+  }
+}
 </style>

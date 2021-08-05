@@ -118,13 +118,14 @@ export default {
 .headBlock__text {
   font-family: Century Gothic;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   font-size: 20px;
   line-height: 87.8%;
   letter-spacing: -0.015em;
   color: rgba(0, 0, 0, 0.7);
   position: relative;
   flex-basis: 50%;
+  min-width: 585px;
   padding: 30px 20px 40px 0px;
   position: relative;
   &::after {
@@ -143,22 +144,27 @@ export default {
   align-items: center;
   position: relative;
   margin-bottom: 138px;
+  svg {
+    min-width: 25px;
+  }
+  h1 {
+    &::before {
+      position: absolute;
+      content: "";
+      // width: 600px;
+      // height: 120px;
+      top: -24px;
+      left: 0px;
+      width: 90%;
+      height: 80px;
+      border: 2px solid rgba(235, 23, 23, 0.7);
+      border-radius: 50%;
+      transform: rotate(-4.95deg);
+      max-height: 160px;
+    }
+  }
   :first-child {
     margin-right: 14px;
-  }
-  &::before {
-    position: absolute;
-
-    content: "";
-    // width: 600px;
-    // height: 120px;
-    top: -24px;
-    left: 20px;
-    width: 90%;
-    height: 350%;
-    border: 2px solid rgba(235, 23, 23, 0.7);
-    border-radius: 50%;
-    transform: rotate(-4.95deg);
   }
 }
 
@@ -169,5 +175,59 @@ export default {
 
 .headBlock__button {
   margin-bottom: 50px;
+}
+
+@media (max-width: 1120px) {
+  .headBlock {
+  }
+  .headBlock__content {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 70%;
+      height: 1px;
+      background: #000000;
+      top: 30px;
+      left: 0px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 70%;
+      height: 1px;
+      background: #000000;
+      bottom: 0px;
+      right: 0px;
+    }
+  }
+  .headBlock__logo {
+    background-image: none;
+    flex-basis: unset;
+    height: auto;
+  }
+  .headBlock__logoTitle {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  .headBlock__text {
+    position: static;
+    width: 70%;
+    flex-basis: unset;
+    min-width: unset;
+    min-width: 320px;
+    &::after {
+      width: 50%;
+    }
+  }
+  .headBlock__textTitle {
+    margin-bottom: 60px;
+  }
+  .headBlock__textMain {
+  }
+  .headBlock__button {
+  }
 }
 </style>
