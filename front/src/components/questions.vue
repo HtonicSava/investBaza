@@ -77,17 +77,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -70px;
-      width: 120%;
-      height: 150%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
@@ -104,7 +93,7 @@ export default {
 
   input {
     margin-bottom: 40px;
-    width: 100%;
+
     background: #f6f6f6;
     border-radius: 20px;
     border-style: solid;
@@ -120,7 +109,12 @@ export default {
   }
 }
 
+.form__name {
+  width: 100%;
+}
+
 .form__question {
+  width: 100%;
   height: 200px;
   margin-bottom: 10px;
   width: 100%;
@@ -143,6 +137,7 @@ export default {
 }
 
 .form__number {
+  width: 100%;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

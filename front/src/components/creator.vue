@@ -97,28 +97,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
-    &::after {
-      position: absolute;
-      content: "";
-      top: -15px;
-      left: -25px;
-      width: 110%;
-      height: 165%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 

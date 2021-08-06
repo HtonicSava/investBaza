@@ -147,17 +147,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -25px;
-      left: -50%;
-      width: 200%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
@@ -228,7 +217,7 @@ export default {
   .documents__title {
     font-size: 30px;
     margin-bottom: 100px;
-    margin-left: 60px;
+    margin-left: 0px;
     h3 {
       &::before {
         top: -10px;

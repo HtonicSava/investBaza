@@ -87,17 +87,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -25px;
-      left: -50%;
-      width: 200%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
@@ -164,12 +153,12 @@ export default {
 
 @media (max-width: 900px) {
   .detailed {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
   }
   .detailed__title {
     font-size: 30px;
-    margin-bottom: 70px;
-    margin-left: 20px;
+    margin-bottom: 50px;
+    margin-left: 0px;
     h3 {
       &::before {
         top: -20%;
@@ -192,7 +181,7 @@ export default {
 
   .detailed__button {
     align-self: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   .detailed__item {

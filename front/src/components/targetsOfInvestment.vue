@@ -195,17 +195,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(4.95deg);
-    }
   }
 }
 
@@ -283,11 +272,11 @@ export default {
     padding-bottom: 35px;
   }
   .item {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .item__title {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
   }
 
   .item__p {

@@ -61,6 +61,8 @@ export default {
 
 <style lang="scss" scoped>
 .headBlock {
+  position: relative;
+
   width: 100%;
 }
 
@@ -128,15 +130,6 @@ export default {
   min-width: 585px;
   padding: 30px 20px 40px 0px;
   position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 320px;
-    height: 15px;
-    right: 0px;
-    // bottom: 0px;
-    background: rgba(235, 23, 23, 0.7);
-  }
 }
 
 .headBlock__textTitle {
@@ -147,22 +140,7 @@ export default {
   svg {
     min-width: 25px;
   }
-  h1 {
-    &::before {
-      position: absolute;
-      content: "";
-      // width: 600px;
-      // height: 120px;
-      top: -24px;
-      left: 0px;
-      width: 90%;
-      height: 80px;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-      max-height: 160px;
-    }
-  }
+
   :first-child {
     margin-right: 14px;
   }

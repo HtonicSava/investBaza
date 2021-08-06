@@ -29,7 +29,7 @@
         {{ text }}
       </h4>
     </div>
-    <button v-if="up === true" v-on:click="$emit('cus-click')">
+    <button v-if="up === true" v-on:click="scrollUp">
       <div class="button__bodyUp">
         <svg
           width="25"
@@ -60,6 +60,12 @@ export default {
   },
   data: function () {
     return {};
+  },
+  methods: {
+    scrollUp() {
+      // window.scrollTo(0,0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 };
 </script>

@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="verification__img">
-      <img src="../../assets/img/verification/item1.png" alt="" />
+      <img src="@/assets/img/personal_account/verification/item1.png" alt="" />
     </div>
   </div>
 </template>
@@ -92,6 +92,26 @@ export default {
   img {
     max-width: 80%;
     width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .verification__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .verification__subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+  .verification__items {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    column-gap: 20px;
+    justify-items: center;
+    justify-content: center;
   }
 }
 </style>

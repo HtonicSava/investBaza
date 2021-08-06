@@ -85,6 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 .investment {
+  padding: 0px 10px;
   p {
     margin-bottom: 0px;
   }
@@ -177,5 +178,41 @@ export default {
 .inform__title {
 }
 .inform__value {
+}
+
+@media (max-width: 600px) {
+  .investment {
+    padding: 0px;
+  }
+  .investment__title {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  .pack__title {
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+  .pack__balance {
+    margin-right: 25px;
+    font-size: 15px;
+  }
+
+  .inform {
+    row-gap: 30px;
+    padding: 35px 0px;
+    font-size: 12px;
+  }
+  .pack {
+    width: 100%;
+    background: #eb1717;
+    border-radius: 20px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 10px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+  }
 }
 </style>

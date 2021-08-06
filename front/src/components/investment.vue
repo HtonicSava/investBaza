@@ -69,15 +69,6 @@ export default {
   position: relative;
   padding-top: 170px;
   margin-bottom: 310px;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 370px;
-    right: 0px;
-    background: rgba(235, 23, 23, 0.7);
-    bottom: -70px;
-  }
 }
 .investment__title {
   // font-family: "Padauk";
@@ -93,17 +84,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(4.95deg);
-    }
   }
 }
 
@@ -217,6 +197,7 @@ export default {
 
 @media (max-width: 900px) {
   .investment {
+    padding-top: 100px;
     margin-bottom: 100px;
     &::after {
       content: unset;

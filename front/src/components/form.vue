@@ -40,9 +40,11 @@
         id="check"
         value="yes"
       />
-      <label for="check"
-        >Я соглашаюсь с правилами
-        <a href="#">&nbsp; политики конфиденциальности</a>
+      <label for="check">
+        <p>
+          Я соглашаюсь с правилами
+          <a href="#">&nbsp; политики конфиденциальности</a>
+        </p>
       </label>
     </div>
     <div v-else>
@@ -146,9 +148,11 @@
         id="check"
         value="yes"
       />
-      <label for="check"
-        >Я соглашаюсь с правилами
-        <a href="#">&nbsp; политики конфиденциальности</a>
+      <label for="check">
+        <p>
+          Я соглашаюсь с правилами
+          <a href="#">&nbsp; политики конфиденциальности</a>
+        </p>
       </label>
     </div>
   </div>
@@ -265,10 +269,13 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 50px 80px;
+  p {
+    margin-bottom: 0px;
+  }
 
   input {
     margin-bottom: 40px;
-    width: 100%;
+    // width: 100%;
     background: #ffffff;
     border-style: solid;
     border-width: 1px;
@@ -378,6 +385,12 @@ export default {
     bottom: 0;
     left: 0;
     z-index: -1;
+  }
+}
+
+@media (max-width: 420px) {
+  .form {
+    padding: 20px 30px;
   }
 }
 </style>

@@ -95,4 +95,13 @@ export default {
   width: 60px;
   height: 60px;
 }
+
+@media (max-width: 600px) {
+  .status__title {
+    font-size: 24px;
+  }
+  .status__item {
+    margin-right: 40px;
+  }
+}
 </style>

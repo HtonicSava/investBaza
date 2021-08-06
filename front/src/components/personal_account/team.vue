@@ -130,4 +130,17 @@ export default {
   }
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .team__title {
+    font-size: 24px;
+  }
+  .team__item {
+    font-size: 12px;
+    font-weight: 700;
+    img {
+      max-width: 70%;
+    }
+  }
+}
 </style>
