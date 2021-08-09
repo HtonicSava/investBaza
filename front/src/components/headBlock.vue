@@ -38,7 +38,7 @@
           </p>
         </div>
         <div class="headBlock__button">
-          <CusButton :text="'Подробнее'" />
+          <CusButton :anchor="'#main_detailed'" :noLine="true" :text="'Подробнее'" />
         </div>
       </div>
     </div>

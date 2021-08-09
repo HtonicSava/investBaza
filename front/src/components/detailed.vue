@@ -4,18 +4,18 @@
       <h3>Подробнее</h3>
     </div>
     <div class="detailed__body">
-      <CusButton class="detailed__button" :up="true" />
+      <CusButton :noLine="true" class="detailed__button" :up="true" />
       <div class="detailed__card">
         <div class="detailed__item">
           <div class="detailed__number">1</div>
           <div class="detailed__itemText">
-            <p>Вход от 10 т.р</p>
+            <p>Вход от десяти тысяч рублей</p>
           </div>
         </div>
         <div class="detailed__item">
           <div class="detailed__number">2</div>
           <div class="detailed__itemText">
-            <p>В среднем 5-7% в месяц</p>
+            <p>В среднем 5 - 7% в месяц</p>
           </div>
         </div>
         <div class="detailed__item">
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="detailed__cardButton">
-          <CusButton :text="'ИНВЕСТИРОВАТЬ'" :color="'red'" />
+          <CusButton @cus-click="redirectToReg" :noLine="true" :text="'ИНВЕСТИРОВАТЬ'" :color="'red'" />
         </div>
       </div>
     </div>
@@ -65,6 +65,11 @@ export default {
   data: function () {
     return {};
   },
+  methods: {
+    redirectToReg(){
+      this.$router.push('Registry');
+    }
+  }
 };
 </script>
 

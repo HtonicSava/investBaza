@@ -25,19 +25,19 @@
       <div class="plan__item-title"><p>Личный депозит</p></div>
       <div class="plan__item-title"><p>1-я линия</p></div>
       <div class="plan__item"><p>М1</p></div>
-      <div class="plan__item"><p>100000</p></div>
-      <div class="plan__item"><p>500000</p></div>
+      <div class="plan__item"><p>100 000</p></div>
+      <div class="plan__item"><p>500 000</p></div>
       <div class="plan__item"><p>М2</p></div>
-      <div class="plan__item"><p>200000</p></div>
+      <div class="plan__item"><p>200 000</p></div>
       <div class="plan__item"><p>1 млн</p></div>
       <div class="plan__item"><p>М3</p></div>
-      <div class="plan__item"><p>300000</p></div>
+      <div class="plan__item"><p>300 000</p></div>
       <div class="plan__item"><p>2 млн</p></div>
       <div class="plan__item"><p>М4</p></div>
-      <div class="plan__item"><p>400000</p></div>
+      <div class="plan__item"><p>400 000</p></div>
       <div class="plan__item"><p>5 млн</p></div>
       <div class="plan__item"><p>М5</p></div>
-      <div class="plan__item"><p>500000</p></div>
+      <div class="plan__item"><p>500 000</p></div>
       <div class="plan__item"><p>10 млн</p></div>
     </div>
     <div class="plan__doubleitemContent">

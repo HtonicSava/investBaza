@@ -19,11 +19,11 @@
           id=""
           placeholder="Телефон"
         />
-        <textarea class="form__question" placeholder="Вопрос" />
+        <!-- <textarea class="form__question" placeholder="Вопрос" /> -->
         <div class="form__button">
-          <CusButton :color="'red'" :text="'Получить консультацию'" />
+          <CusButton :noLine="true" :color="'red'" :text="'Получить консультацию'" />
         </div>
-        <input
+        <!-- <input
           type="checkbox"
           class="custom-checkbox"
           id="check"
@@ -35,7 +35,7 @@
             Я соглашаюсь с правилами
             <a href="#">&nbsp; политики конфиденциальности</a>
           </p>
-        </label>
+        </label> -->
       </div>
     </div>
   </div>
@@ -81,6 +81,7 @@ export default {
 }
 
 .questions__content {
+  
 }
 
 .form {
@@ -89,7 +90,7 @@ export default {
   border: 3px solid #515151;
   display: flex;
   flex-direction: column;
-  padding: 50px 80px;
+  padding: 100px 80px;
 
   input {
     margin-bottom: 40px;
@@ -133,7 +134,7 @@ export default {
 }
 
 .form__button {
-  margin-bottom: 35px;
+  // margin-bottom: 35px;
 }
 
 .form__number {

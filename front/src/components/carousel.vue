@@ -96,28 +96,29 @@ export default {
   },
   methods: {
     leftClick: function () {
-      this.transition();
+      // this.transition();
       setTimeout(() => {
         if (this.currentPhoto > 0) {
           this.currentPhoto--;
         } else {
           this.currentPhoto = this.photos.length - 1;
         }
-      }, 500);
+      }, 100);
     },
     rightClick: function () {
-      this.transition();
+      // this.transition();
       setTimeout(() => {
         if (this.currentPhoto < this.photos.length - 1) {
           this.currentPhoto++;
         } else {
           this.currentPhoto = 0;
         }
-      }, 500);
+      }, 100);
     },
     transition: function () {
       this.$refs.image.style.opacity = 0;
-      setTimeout(() => (this.$refs.image.style.opacity = 1), 499);
+      // setTimeout(() => (this.$refs.image.style.opacity = 1), 500);
+      this.$refs.image.style.opacity = 1;
     },
   },
 };

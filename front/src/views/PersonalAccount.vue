@@ -5,7 +5,7 @@
       <div class="content">
         <div class="content__top">
           <div class="content__conditions">
-            <p>Условия для инвестирования</p>
+            <p>Имя Фамилия</p>
           </div>
           <div class="content__img">
             <img src="@/assets/img/personal_account/item.png" alt="" />

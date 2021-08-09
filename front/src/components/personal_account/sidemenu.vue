@@ -46,10 +46,10 @@
         </svg>
       </div>
       <div class="sidemenu__avatar">
-        <img src="@/assets/img/personal_account/item.png" alt="" />
+        <!-- <img src="@/assets/img/personal_account/item.png" alt="" /> -->
       </div>
     </div>
-    <div class="sidemenu__card">
+    <!-- <div class="sidemenu__card">
       <div class="sidemenu__img">
         <img
           ref="image"
@@ -89,7 +89,7 @@
           />
         </svg>
       </div>
-    </div>
+    </div> -->
     <div class="sidemenu__links">
       <div class="sidemenu__linksContainer">
         <p
@@ -116,14 +116,12 @@
         >
           Моя команда
         </p>
-        <p
+        <!-- <p
           :class="{ 'sidemenu__link-active': pages.Status === true }"
           @click="changePage('Status')"
         >
           Мой статус
-        </p>
-      </div>
-      <div class="sidemenu__linksContainer">
+        </p> -->
         <p
           :class="{ 'sidemenu__link-active': pages.Finance === true }"
           @click="changePage('Finance')"
@@ -142,12 +140,15 @@
         >
           Отчеты
         </p>
-        <p
+        <!-- <p
           :class="{ 'sidemenu__link-active': pages.News === true }"
           @click="changePage('News')"
         >
-          Новости
-        </p>
+          Тех. поддержка 
+        </p> -->
+      </div>
+      <div class="sidemenu__linksContainer">
+
       </div>
     </div>
   </div>
@@ -245,9 +246,26 @@ export default {
   position: relative;
 }
 
-.sidemenu__img {
+.sidemenu__avatar {
+  width: 83px;
+  height: 83px;
+  border-radius: 50%;
+  background-color: #cccccc;
   display: flex;
   justify-content: center;
+  position: relative;
+  text-align: center;
+  font-family: 'Roboto';
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  &::before{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    content: 'Загрузить фото';
+  }
   img {
     max-width: 100%;
     width: auto;
@@ -280,7 +298,8 @@ export default {
 .sidemenu__linksContainer {
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
+  font-size: 24px;
+  // font-weight: 500;
   line-height: 76.69%;
   letter-spacing: -0.04em;
   color: #000000;

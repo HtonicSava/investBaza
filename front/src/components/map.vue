@@ -8,8 +8,7 @@
     </div>
     <div class="map__text">
       <p>
-        Адрес: Республика Крым, Севастополь, ул. Маяковского, д. 8, оф. 308
-        299011
+        Адрес: Республика Крым, Севастополь, улица Маяковского, дом 8, офис 308
       </p>
     </div>
   </div>
@@ -63,7 +62,7 @@ export default {
   letter-spacing: -0.025em;
   color: #000000;
   margin-left: 70px;
-  width: 440px;
+  width: 500px;
 }
 
 @media (max-width: 900px) {
@@ -93,7 +92,7 @@ export default {
     letter-spacing: -0.025em;
     color: #000000;
     margin-left: 0px;
-    width: unset;
+    width: 280px;
   }
 }
 </style>

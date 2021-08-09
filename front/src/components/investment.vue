@@ -4,7 +4,7 @@
       <h3>Куда инвестирует фонд</h3>
     </div>
     <div class="investment__button">
-      <CusButton :up="true" />
+      <CusButton :noLine="true" :up="true" />
     </div>
     <div class="investment__body">
       <div class="investment__img">

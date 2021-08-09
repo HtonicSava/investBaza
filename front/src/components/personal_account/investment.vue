@@ -10,7 +10,7 @@
         </div>
         <div class="pack__info">
           <div class="pack__balance">
-            <p>100000р</p>
+            <p>10 000р</p>
           </div>
           <div class="pack__button">
             <button>
@@ -137,7 +137,8 @@ export default {
   display: flex;
   align-items: center;
   font-family: Century Gothic;
-  font-size: 15px;
+  font-size: 25px;
+  
   button {
     width: 40px;
     height: 40px;
@@ -213,6 +214,12 @@ export default {
     padding: 0px 10px;
     padding-top: 30px;
     padding-bottom: 25px;
+  }
+  .pack__button {
+  display: flex;
+  align-items: center;
+  font-family: Century Gothic;
+  font-size: 18px;
   }
 }
 </style>

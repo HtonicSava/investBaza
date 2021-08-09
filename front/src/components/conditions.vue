@@ -5,17 +5,17 @@
     </div>
     <div class="conditions__items">
       <div class="conditions__item">
-        <p>Вход от 10 т.р</p>
+        <p>Вход от десяти тысяч рублей</p>
       </div>
       <div class="conditions__item">
-        <p>от 300 т.р депозит <span>страхуется</span></p>
+        <p>от трёхсот тысяч рублей депозит <span>страхуется</span></p>
       </div>
       <div class="conditions__item">
-        <p>Минимальная сумма увеличения 10 т.р</p>
+        <p>Минимальная сумма увеличения десять тысяч рублей</p>
       </div>
     </div>
     <div class="conditions__button">
-      <CusButton :color="'red'" :text="'ИНВЕСТИРОВАТЬ'" />
+      <CusButton @cus-click="redirectToReg" :noLine="true" :color="'red'" :text="'ИНВЕСТИРОВАТЬ'" />
     </div>
   </div>
 </template>
@@ -31,6 +31,11 @@ export default {
   data: function () {
     return {};
   },
+  methods: {
+    redirectToReg(){
+      this.$router.push('Registry');
+    }
+  }
 };
 </script>
 
@@ -80,6 +85,7 @@ export default {
   color: #000000;
   padding: 0px 60px;
   p {
+    
     margin-bottom: 0px;
   }
   &:nth-child(1) {
@@ -91,6 +97,7 @@ export default {
     }
   }
   &:nth-child(3) {
+    padding: 0px 40px;
   }
 }
 .conditions__button {
@@ -116,10 +123,14 @@ export default {
     }
   }
   .conditions__items {
+    
   }
   .conditions__item {
     font-size: 16px;
     flex-basis: 280px;
+    &:nth-child(1) {
+    padding: 0px 80px;
+  }
   }
   .conditions__button {
   }

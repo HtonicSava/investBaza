@@ -21,10 +21,10 @@
           <p>Оборот первой линии</p>
         </div>
       </div>
-      <div class="main__bigbox">
+      <!-- <div class="main__bigbox">
         <div class="main__bigitem">Календарь регистраций</div>
         <div class="main__bigitem">Календарь начислений</div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -60,8 +60,8 @@ export default {
   row-gap: 17px;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
-  line-height: 76.69%;
+  font-size: 20px;
+  line-height: 100%;
   letter-spacing: -0.04em;
   color: #000000;
   text-align: center;

@@ -20,29 +20,74 @@
           </div>
         </template>
         <v-list class="menu__items-mobile">
+          
+          <router-link to="/login">
+            <v-list-item
+              class="menu__item-mobile supline"
+            >
+              <v-list-item-title> Войти </v-list-item-title>
+            </v-list-item>
+          </router-link>
+
+          <router-link to="/registry">
+            <v-list-item
+              class="menu__item-mobile"
+            >
+              <v-list-item-title> Регистрация </v-list-item-title>
+            </v-list-item>
+          </router-link>
+
           <v-list-item
+              class="menu__item-mobile"
+            >
+              <v-list-item-title>  </v-list-item-title>
+          </v-list-item>
+
+          <a href="#main_detailed">
+          <v-list-item
+            class="menu__item-mobile"
+          >
+            <v-list-item-title> Подробнее</v-list-item-title>
+          </v-list-item>
+          </a>
+          <a href="#main_documents">
+          <v-list-item
+            class="menu__item-mobile"
+          >
+            <v-list-item-title> Документы</v-list-item-title>
+          </v-list-item>
+          </a>
+          <a href="#main_reviews">
+          <v-list-item
+            class="menu__item-mobile"
+          >
+            <v-list-item-title> Отзывы</v-list-item-title>
+          </v-list-item>
+          </a>
+          <!-- <v-list-item
             class="menu__item-mobile"
             v-for="(item, index) in items"
             :key="index"
             @click="rout(item.rout)"
           >
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
+            <v-list-item-title> <a :href="item.link">{{ item.title }}</a></v-list-item-title>
+            <v-list-item-title> {{ item.title }}</v-list-item-title>
+          </v-list-item> -->
         </v-list>
       </v-menu>
 
       <div class="menu__items">
-        <div class="menu__item">
+        <!-- <div class="menu__item">
           <p>Главная</p>
+        </div> -->
+        <div class="menu__item">
+          <a href="#main_detailed"><p>Подробнее</p></a>
         </div>
         <div class="menu__item">
-          <p>Подробнее</p>
+          <a href="#main_documents"><p>Документы</p></a>
         </div>
         <div class="menu__item">
-          <p>Документы</p>
-        </div>
-        <div class="menu__item">
-          <p>Отзывы</p>
+          <a href="#main_reviews"><p>Отзывы</p></a>
         </div>
         <div class="menu__item">
           <p></p>
@@ -71,16 +116,19 @@ export default {
         { title: "Регистрация", rout: "Registry" },
         { title: "Войти", rout: "Login" },
         { title: " " },
-        { title: "Главная" },
-        { title: "Подробнее" },
-        { title: "Документы" },
-        { title: "Отзывы" },
+        
+        { title: "Подробнее",
+          link: "#main_detailed" },
+        { title: "Документы",
+          link: "#main_documents" },
+        { title: "Отзывы",
+          link: "#main_reviews" },
       ],
     };
   },
   methods: {
     rout(name) {
-      this.$router.push(name);
+        this.$router.push(name);
     },
   },
 };
@@ -217,6 +265,20 @@ export default {
     font-size: unset;
   }
   //**************
+
+  .supline {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: "";
+        width: 80%;
+        height: 1px;
+        right: 0px;
+        top: 0px;
+        border-bottom: 1px solid #696969;
+      }
+  }
+
   .menu__item-mobile {
     font-family: Century Gothic;
     text-align: right;
@@ -230,18 +292,18 @@ export default {
       right: 0px;
       border-bottom: 1px solid #696969;
     }
-    &:first-child {
-      font-weight: 700;
-      &::before {
-        position: absolute;
-        content: "";
-        width: 80%;
-        height: 1px;
-        right: 0px;
-        top: 0px;
-        border-bottom: 1px solid #696969;
-      }
-    }
+    // &:first-child {
+    //   font-weight: 700;
+    //   &::before {
+    //     position: absolute;
+    //     content: "";
+    //     width: 80%;
+    //     height: 1px;
+    //     right: 0px;
+    //     top: 0px;
+    //     border-bottom: 1px solid #696969;
+    //   }
+    // }
   }
 }
 </style>

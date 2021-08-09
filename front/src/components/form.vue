@@ -51,28 +51,6 @@
       <div class="form__wrapper">
         <v-text-field
           :rules="[rules.required]"
-          v-model="reg.phone"
-          outlined
-          clearable
-          single-line
-          placeholder="Телефон"
-          color="black"
-        ></v-text-field>
-      </div>
-      <div class="form__wrapper">
-        <v-text-field
-          :rules="[rules.required]"
-          v-model="reg.email"
-          outlined
-          clearable
-          single-line
-          placeholder="Почта"
-          color="black"
-        ></v-text-field>
-      </div>
-      <div class="form__wrapper">
-        <v-text-field
-          :rules="[rules.required]"
           v-model="reg.name"
           outlined
           clearable
@@ -93,7 +71,16 @@
         ></v-text-field>
       </div>
       <div class="form__wrapper">
-        <v-text-field
+        <v-select
+            :rules="[rules.required]"
+            v-model="reg.country"
+            clearable
+            color="black"
+            :items="reg.countries"
+            placeholder="Страна"
+            outlined
+          ></v-select>
+        <!-- <v-text-field
           :rules="[rules.required]"
           v-model="reg.country"
           outlined
@@ -101,8 +88,42 @@
           single-line
           placeholder="Страна"
           color="black"
+        >
+         
+        </v-text-field> -->
+        
+        <!-- <model-select class="test" :options="options"
+                                v-model="reg.country"
+                                placeholder="select item">
+         </model-select> -->
+
+
+
+      </div>
+      <div class="form__wrapper">
+        <v-text-field
+          :rules="[rules.required]"
+          v-model="reg.phone"
+          outlined
+          clearable
+          single-line
+          placeholder="Телефон"
+          color="black"
         ></v-text-field>
       </div>
+      <div class="form__wrapper">
+        <v-text-field
+          :rules="[rules.required]"
+          v-model="reg.email"
+          outlined
+          clearable
+          single-line
+          placeholder="Email"
+          color="black"
+        ></v-text-field>
+      </div>
+      
+      
       <div class="form__wrapper">
         <v-text-field
           v-model="reg.password"
@@ -161,6 +182,8 @@
 <script>
 import CusButton from "./button.vue";
 import axios from "@/service/axios.js";
+// import { ModelSelect } from 'vue-search-select'
+
 
 export default {
   name: "form",
@@ -168,10 +191,12 @@ export default {
     login: Boolean,
   },
   components: {
+    // ModelSelect,
     CusButton,
   },
   data: function () {
     return {
+      
       log: {
         agreement: false,
         showpas: false,
@@ -180,6 +205,7 @@ export default {
         password: "",
       },
       reg: {
+        countries: ['Россия', 'Украина', 'Беларусь', 'Казахстан'],
         agreement: false,
         showpas: false,
         email: "",
@@ -388,6 +414,20 @@ export default {
   }
 }
 
+.test{
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+  padding: 22px 14px;
+  .search{
+    width: 100%;
+    height: 100%;
+  }
+  .menu{
+    z-index: 1000;
+  }
+}
+
 @media (max-width: 420px) {
   .form {
     padding: 20px 30px;
@@ -399,5 +439,8 @@ export default {
 /* // rewrite vuetify style */
 .v-messages {
   font-size: 16px !important;
+}
+.v-select__selection--comma{
+  margin: 7px 4px 7px 8px !important;
 }
 </style>

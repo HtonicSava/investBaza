@@ -49,7 +49,7 @@
                     alt=""
                     srcset=""
                   />
-                  <p>Биткоин</p>
+                  <p>Bitcoin</p>
                 </div>
                 <div class="finance__method">
                   <img
@@ -115,7 +115,7 @@
                     alt=""
                     srcset=""
                   />
-                  <p>Биткоин</p>
+                  <p>Bitcoin</p>
                 </div>
                 <div class="finance__method">
                   <img

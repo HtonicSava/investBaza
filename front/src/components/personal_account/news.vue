@@ -1,9 +1,9 @@
 <template>
   <div class="news">
     <div class="news__title">
-      <h3>Новости</h3>
+      <h3>Тех. поддержка</h3>
     </div>
-    <div class="news__content">
+    <!-- <div class="news__content">
       <div class="news__item">
         <img src="@/assets/img/personal_account/news/item1.png" alt="" />
         <p>
@@ -28,7 +28,7 @@
           veniam consequat sunt nostrud amet.
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

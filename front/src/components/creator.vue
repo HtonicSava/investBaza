@@ -141,15 +141,15 @@ export default {
   h3 {
     display: inline;
     position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 2px;
-      right: -30px;
-      bottom: 0;
-      background: #eb1717;
-    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   width: 230px;
+    //   height: 2px;
+    //   right: -30px;
+    //   bottom: 0;
+    //   background: #eb1717;
+    // }
   }
 }
 .creator__textItem {

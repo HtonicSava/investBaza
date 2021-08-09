@@ -22,11 +22,10 @@ export default {
     return {
       items: [
         { text: "Имя" },
-        { text: "Email" },
         { text: "Фамилия" },
-        { text: "Город" },
-        { text: "Отчество" },
-        { text: "Дата рождения" },
+        { text: "Email" },
+        { text: "Телефон" },
+        { text: "Страна" },
       ],
     };
   },

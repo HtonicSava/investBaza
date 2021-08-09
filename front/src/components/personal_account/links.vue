@@ -23,7 +23,7 @@
           </div>
         </router-link>
 
-        <div class="links__item">
+        <!-- <div class="links__item">
           <svg
             width="13"
             height="15"
@@ -90,10 +90,10 @@
               fill="black"
             />
           </svg>
-        </div>
+        </div> -->
       </div>
       <div class="links__settings">
-        <div class="links__item">
+        <!-- <div class="links__item">
           <svg
             width="15"
             height="15"
@@ -110,7 +110,7 @@
               fill="black"
             />
           </svg>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

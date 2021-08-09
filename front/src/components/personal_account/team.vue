@@ -16,7 +16,8 @@
             alt=""
           />
           <p>{{ item.name }} {{ item.surname }}</p>
-          <p>{{ item.city }}</p>
+          <p>{{ item.phone }}</p>
+          <p>{{ item.email }}</p>
         </div>
       </div>
     </div>
@@ -33,56 +34,65 @@ export default {
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item1",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item2",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item3",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item4",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item5",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item6",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item7",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item8",
+          email: "Email"
         },
         {
           name: "Имя",
           surname: "Фамилия",
-          city: "Город",
+          phone: "Телефон",
           photoName: "item9",
+          email: "Email"
         },
       ],
     };
