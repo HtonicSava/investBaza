@@ -144,6 +144,7 @@ export default {
     max-width: 100%;
     width: 100%;
     transition: 0.2s;
+    height: 100%;
     // opacity: 1;
   }
 }

@@ -8,7 +8,7 @@
             <p>Имя Фамилия</p>
           </div>
           <div class="content__img">
-            <img src="@/assets/img/personal_account/item.png" alt="" />
+            <!-- <img src="@/assets/img/personal_account/item.png" alt="" /> -->
           </div>
         </div>
 
@@ -108,9 +108,25 @@ export default {
 
 .content__img {
   display: none;
+  background-color: #cccccc;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: relative;
   img {
     max-width: 70px;
     width: auto;
+  }
+  &::after{
+    
+    content: "Загрузить фото";
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 

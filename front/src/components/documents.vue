@@ -69,7 +69,9 @@
         </svg>
       </div>
       <div class="documents__download">
-        <svg
+        <!-- http://188.225.47.84:8000 -->
+        <a href="/api/file/">
+          <svg
           width="17"
           height="18"
           viewBox="0 0 17 18"
@@ -89,6 +91,8 @@
             fill="black"
           />
         </svg>
+        </a>
+        
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="investment__item inform">
+      <!-- <div class="investment__item inform">
         <div class="inform__item">
           <div class="inform__title">
             <h4>Дата инвестирования</h4>
@@ -68,7 +68,7 @@
           </div>
           <div class="inform__value">0</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

@@ -12,7 +12,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="investValue" type="number" name="" id="" />
+          <input v-model="triadInvest" name=""  />
         </div>
         <div class="calculator__range">
           <v-slider
@@ -32,7 +32,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="reinvestValue" type="number" name="" id="" />
+          <input v-model="triadReinvest" name=""  />
         </div>
         <div class="calculator__range">
           <v-slider
@@ -60,22 +60,55 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   components: {},
   name: "calculator",
   data: function () {
     return {
-      investValue: 0,
-      reinvestValue: 0,
+      investValue: "",
+      reinvestValue: "",
     };
   },
   computed: {
+    triadReinvest: {
+      get: function () {
+        if (this.reinvestValue !== "") {
+          return this.formatTriad(this.reinvestValue);
+        }
+      },
+      set: function (newValue) {
+        this.reinvestValue = this.parseTriad(newValue);
+      }
+    },
+    triadInvest: {
+      get: function () {
+        if (this.investValue !== "") {
+          return this.formatTriad(this.investValue);
+        }
+      },
+      set: function (newValue) {
+        this.investValue = this.parseTriad(newValue);
+      }
+    },
     finalValue: function () {
       return (Math.floor(
-        (Number(this.investValue) + Number(this.reinvestValue)) * 0.06).toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
+        ( Number(this.investValue) + Number(this.reinvestValue)) * 0.06).toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
       );
     },
+    
   },
+  methods: {
+    formatTriad(num) {
+      return Number(num)
+        .toString()
+        .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+    },
+    parseTriad(text) {
+      return Number(text.replace(/ /g, ""));
+    },
+    
+  }
 };
 </script>
 

@@ -22,7 +22,7 @@
             </svg>
           </div>
         </router-link>
-        <div class="panel__item">
+        <!-- <div class="panel__item">
           <svg
             width="13"
             height="15"
@@ -89,7 +89,7 @@
               fill="black"
             />
           </svg>
-        </div>
+        </div> -->
       </div>
 
       <v-menu transition="slide-y-transition">
@@ -115,7 +115,7 @@
       </v-menu>
 
       <div class="panel__group">
-        <div class="panel__item">
+        <!-- <div class="panel__item">
           <svg
             width="15"
             height="15"
@@ -132,7 +132,7 @@
               fill="black"
             />
           </svg>
-        </div>
+        </div> -->
         <div class="panel__item">
           <svg
             width="14"
@@ -247,7 +247,7 @@ export default {
   display: flex;
   max-width: 165px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .panel__item {
   display: flex;
