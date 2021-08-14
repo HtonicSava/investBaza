@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: "/registry",
-    name: "Redistry",
+    name: "Registry",
     component: () => import("@/views/Registry.vue"),
   },
   {

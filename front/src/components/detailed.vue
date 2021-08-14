@@ -4,18 +4,18 @@
       <h3>Подробнее</h3>
     </div>
     <div class="detailed__body">
-      <CusButton :up="true" />
+      <CusButton :noLine="true" class="detailed__button" :up="true" />
       <div class="detailed__card">
         <div class="detailed__item">
           <div class="detailed__number">1</div>
           <div class="detailed__itemText">
-            <p>Вход от 10 т.р</p>
+            <p>Вход от десяти тысяч рублей</p>
           </div>
         </div>
         <div class="detailed__item">
           <div class="detailed__number">2</div>
           <div class="detailed__itemText">
-            <p>В среднем 5-7% в месяц</p>
+            <p>В среднем 5 - 7% в месяц</p>
           </div>
         </div>
         <div class="detailed__item">
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="detailed__cardButton">
-          <CusButton :text="'ИНВЕСТИРОВАТЬ'" :color="'red'" />
+          <CusButton @cus-click="redirectToReg" :noLine="true" :text="'ИНВЕСТИРОВАТЬ'" :color="'red'" />
         </div>
       </div>
     </div>
@@ -65,6 +65,11 @@ export default {
   data: function () {
     return {};
   },
+  methods: {
+    redirectToReg(){
+      this.$router.push('Registry');
+    }
+  }
 };
 </script>
 
@@ -87,17 +92,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -25px;
-      left: -50%;
-      width: 200%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
@@ -160,5 +154,54 @@ export default {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .detailed {
+    margin-bottom: 50px;
+  }
+  .detailed__title {
+    font-size: 30px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 130%;
+        height: 150%;
+      }
+    }
+  }
+  .detailed__body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailed__card {
+    height: auto;
+    min-width: 280px;
+    width: 80%;
+    padding: 60px 20px;
+  }
+
+  .detailed__button {
+    align-self: flex-end;
+    margin-bottom: 50px;
+  }
+
+  .detailed__item {
+    margin-bottom: 10px;
+  }
+  .detailed__number {
+    margin-right: 10px;
+  }
+  .detailed__itemText {
+    font-size: 18px;
+  }
+  .detailed__itemSubText {
+    font-size: 12px;
+  }
+  .detailed__cardButton {
+  }
 }
 </style>

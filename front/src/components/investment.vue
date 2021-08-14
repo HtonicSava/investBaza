@@ -4,7 +4,7 @@
       <h3>Куда инвестирует фонд</h3>
     </div>
     <div class="investment__button">
-      <CusButton :up="true" />
+      <CusButton :noLine="true" :up="true" />
     </div>
     <div class="investment__body">
       <div class="investment__img">
@@ -69,15 +69,6 @@ export default {
   position: relative;
   padding-top: 170px;
   margin-bottom: 310px;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 15px;
-    height: 370px;
-    right: 0px;
-    background: rgba(235, 23, 23, 0.7);
-    bottom: -70px;
-  }
 }
 .investment__title {
   // font-family: "Padauk";
@@ -93,17 +84,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(4.95deg);
-    }
   }
 }
 
@@ -120,6 +100,9 @@ export default {
   height: auto;
 }
 .investment__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 500px;
   height: 500px;
   flex-grow: 0;
@@ -210,5 +193,68 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .investment {
+    padding-top: 100px;
+    margin-bottom: 100px;
+    &::after {
+      content: unset;
+    }
+  }
+  .investment__title {
+    font-size: 25px;
+  }
+  .investment__button {
+  }
+  .investment__body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .investment__img {
+    width: auto;
+    height: auto;
+    margin-bottom: 25px;
+    img {
+      max-width: 60%;
+      width: auto;
+    }
+  }
+  .investment__items {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  .investment__item {
+    h4 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+    }
+    width: auto;
+    &:nth-child(1) {
+      align-self: unset;
+    }
+    &:nth-child(2) {
+      align-self: unset;
+    }
+    &:nth-child(3) {
+      align-self: unset;
+    }
+    &:nth-child(4) {
+      align-self: unset;
+    }
+    &:nth-child(5) {
+      align-self: unset;
+    }
+  }
+  .investment__percent {
+  }
 }
 </style>

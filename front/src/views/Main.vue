@@ -7,13 +7,13 @@
         <Investment />
         <Conditions />
         <Creator />
-        <Detailed />
+        <Detailed id="main_detailed"/>
         <Calculator />
         <TargetsOfInvestment />
-        <Documents />
+        <Documents id="main_documents"/>
         <Plan />
         <Road />
-        <Reviews />
+        <Reviews id="main_reviews"/>
         <Questions />
         <Inst />
         <Map />
@@ -75,5 +75,11 @@ export default {
   padding: 0px 10px;
   width: 100%;
   margin: auto;
+}
+
+@media (max-width: 1120px) {
+  .container {
+    padding: 0px 25px;
+  }
 }
 </style>

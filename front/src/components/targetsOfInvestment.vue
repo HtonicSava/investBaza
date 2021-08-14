@@ -8,14 +8,14 @@
         <Carousel :photos="photosGarden">
           <div class="item">
             <h1 class="item__title">Частный детский садик</h1>
-            <p class="item__p">Инвестиции в садик - 600 т.р</p>
-            <p class="item__p">Чистая прибыль - 100 т.р</p>
+            <p class="item__p">Инвестиции в садик - 600 000 рублей</p>
+            <p class="item__p">Чистая прибыль - 100 000 рублей</p>
             <p class="item__p">
-              Большой спрос на детские сады в Крыму <br />
-              Нет достойных конкурентов <br />
-              Быстрая окупаемость <br />
-              Бизнесс по подписке-9 месяцев прогнозируемого дохода
+              Большой спрос на детские сады в Крыму 
             </p>
+            <p class="item__p">Нет достойных конкурентов</p>
+            <p class="item__p">Быстрая окупаемость</p>
+            <p class="item__p">Бизнесс по подписке - девять месяцев прогнозируемого дохода</p>
           </div>
         </Carousel>
       </div>
@@ -27,15 +27,15 @@
           <div class="item">
             <h1 class="item__title">Кофейня самообслуживания</h1>
             <p class="item__p">
-              Инвестиции в 1 аппарат - 350 т.р <br />
-              Чистая прибыль - 40 т.р
+              Инвестиции в один аппарат - 350 000 рублей 
             </p>
+            <p class="item__p">Чистая прибыль - 40 000 рублей</p>
             <p class="item__p">
-              Таких аппаратов в Крыму еще нет <br />
-              Нет расходов на сотрудников <br />
-              Недорогая аренда <br />
-              Вкусный зерновой кофе
+              Таких аппаратов в Крыму еще нет 
             </p>
+            <p class="item__p">Нет расходов на сотрудников</p>
+            <p class="item__p">Недорогая аренда</p>
+            <p class="item__p">Вкусный зерновой кофе</p>
           </div>
         </Carousel>
       </div>
@@ -44,15 +44,17 @@
           <div class="item">
             <h1 class="item__title">Доходные автомобили</h1>
             <p class="item__p">
-              Инвестиции в 1 авто - 400 т.р <br />
-              Чистая прибыль - 30 т.р
+              Инвестиции в один автомобиль - 400 000 рублей
+              
             </p>
+            <p class="item__p">Чистая прибыль - 30 000 рублей</p>
             <p class="item__p">
-              Из-за санкций в Крыму нет Яндекс такси <br />
-              Низкая стоимость авто <br />
-              Быстрая окупаемость <br />
-              Управляющая компания страхует угон
+              Из-за санкций в Крыму нет Яндекс такси 
+              
             </p>
+            <p class="item__p">Низкая стоимость авто</p>
+            <p class="item__p">Быстрая окупаемость</p>
+            <p class="item__p">Управляющая компания страхует угон</p>
           </div>
         </Carousel>
       </div>
@@ -61,15 +63,16 @@
           <div class="item">
             <h1 class="item__title">Недвижимость</h1>
             <p class="item__p">
-              Инвестиции в 1 дом - 4 700 млн. р <br />
-              Доход от аренды - 30 т.р
+              Инвестиции в один дом - 4 700 000 рублей 
+              
             </p>
+            <p class="item__p">Доход от аренды - 30 000 рублей</p>
             <p class="item__p">
-              Растет в цене <br />
-              Низкий риск <br />
-              Налоговые льготы <br />
-              Нет сложностей со сдачей в аренду
+              Растет в цене 
             </p>
+            <p class="item__p">Низкий риск </p>
+            <p class="item__p">Налоговые льготы </p>
+            <p class="item__p">Нет сложностей со сдачей в аренду</p>
           </div>
         </Carousel>
       </div>
@@ -77,9 +80,9 @@
         <Carousel :topimg="true" :photos="photosInvestclub">
           <div class="item">
             <h1 class="item__title">OG INVEST CLUB</h1>
-            <p class="item__p">Восемь лет стабильной работы <br /></p>
-            <p class="item__p">83% доходность за 2020 год <br /></p>
-            <p class="item__p">Своя академия трейдеров <br /></p>
+            <p class="item__p">Восемь лет стабильной работы </p>
+            <p class="item__p">83% доходность за 2020 год </p>
+            <p class="item__p">Своя академия трейдеров </p>
             <p class="item__p">Офис в Крыму</p>
           </div>
         </Carousel>
@@ -90,12 +93,12 @@
             <h1 class="item__title">Фондовый рынок</h1>
             <p class="item__p">Портфель собран на Interactive Brokers</p>
             <p class="item__p">
-              Опционная стратегия на базе ETF <br />
+              Опционная стратегия на базе ETF 
               фондов с доходность 20-30% в год
             </p>
             <p class="item__p">Индекс широкого рынка</p>
             <p class="item__p">
-              Спекуляция на акциях с <br />
+              Спекуляция на акциях с 
               доходностью 50-80% годовых
             </p>
           </div>
@@ -104,11 +107,10 @@
       <div class="investment__item">
         <Carousel :photos="photosIPO">
           <div class="item">
-            <h1 class="item__title">IPO</h1>
             <div class="item__ipo">
               <h1 class="item__title">IPO&nbsp;-&nbsp;</h1>
               <p class="item__p">
-                Первичное размещение акций, процесс продажи компанией акций на
+                первичное размещение акций, процесс продажи компанией акций на
                 фондовом рынке, в результате которого компания становится
                 публичной, а бумаги доступными широкому кругу инвесторов
               </p>
@@ -195,17 +197,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(4.95deg);
-    }
   }
 }
 
@@ -231,13 +222,13 @@ export default {
 }
 
 .item__title {
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 .item__p {
   color: rgba(0, 0, 0, 0.8);
   font-size: 28px;
-  margin-bottom: 50px;
+  margin-bottom: 35px;
   line-height: 100%;
   &:last-child {
     margin-bottom: 0px;
@@ -251,6 +242,48 @@ export default {
   margin-bottom: 50px;
   &:last-child {
     margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 900px) {
+  .investment {
+    position: relative;
+    padding-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  .investment__title {
+    margin-bottom: 100px;
+    margin-right: 20px;
+    font-size: 30px;
+    margin-bottom: 70px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .investment__item {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  .item {
+    font-size: 24px;
+  }
+
+  .item__title {
+    margin-bottom: 24px;
+  }
+
+  .item__p {
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 }
 </style>

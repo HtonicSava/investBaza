@@ -5,17 +5,17 @@
     </div>
     <div class="conditions__items">
       <div class="conditions__item">
-        <p>Вход от 10 т.р</p>
+        <p>Вход от десяти тысяч рублей</p>
       </div>
       <div class="conditions__item">
-        <p>от 300 т.р депозит <span>страхуется</span></p>
+        <p>от трёхсот тысяч рублей депозит <span>страхуется</span></p>
       </div>
       <div class="conditions__item">
-        <p>Минимальная сумма увеличения 10 т.р</p>
+        <p>Минимальная сумма увеличения десять тысяч рублей</p>
       </div>
     </div>
     <div class="conditions__button">
-      <CusButton :color="'red'" :text="'ИНВЕСТИРОВАТЬ'" />
+      <CusButton @cus-click="redirectToReg" :noLine="true" :color="'red'" :text="'ИНВЕСТИРОВАТЬ'" />
     </div>
   </div>
 </template>
@@ -31,6 +31,11 @@ export default {
   data: function () {
     return {};
   },
+  methods: {
+    redirectToReg(){
+      this.$router.push('Registry');
+    }
+  }
 };
 </script>
 
@@ -52,17 +57,6 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -25px;
-      left: -20px;
-      width: 120%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
@@ -71,9 +65,11 @@ export default {
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 .conditions__item {
-  flex-basis: 370px;
+  margin: 25px;
+  flex-basis: 320px;
   height: 200px;
   display: flex;
   align-items: center;
@@ -87,7 +83,9 @@ export default {
   line-height: 101.3%;
   letter-spacing: -0.015em;
   color: #000000;
+  padding: 0px 60px;
   p {
+    
     margin-bottom: 0px;
   }
   &:nth-child(1) {
@@ -99,11 +97,42 @@ export default {
     }
   }
   &:nth-child(3) {
-    padding: 0px 60px;
+    padding: 0px 40px;
   }
 }
 .conditions__button {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .conditions {
+    margin-bottom: 100px;
+  }
+  .conditions__title {
+    font-size: 25px;
+    margin-bottom: 70px;
+    margin-right: 20px;
+    h3 {
+      &::before {
+        top: -20%;
+        left: -25px;
+        width: 120%;
+        height: 150%;
+      }
+    }
+  }
+  .conditions__items {
+    
+  }
+  .conditions__item {
+    font-size: 16px;
+    flex-basis: 280px;
+    &:nth-child(1) {
+    padding: 0px 80px;
+  }
+  }
+  .conditions__button {
+  }
 }
 </style>

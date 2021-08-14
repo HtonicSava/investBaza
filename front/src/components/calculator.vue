@@ -12,7 +12,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="investValue" type="number" name="" id="" />
+          <input v-model="triadInvest" name=""  />
         </div>
         <div class="calculator__range">
           <v-slider
@@ -20,7 +20,7 @@
             track-color="#E2E2E2"
             track-fill-color="#E84C4C"
             thumb-color="#E84C4C"
-            :max="100000000"
+            :max="10000000"
           ></v-slider>
         </div>
       </div>
@@ -32,7 +32,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="reinvestValue" type="number" name="" id="" />
+          <input v-model="triadReinvest" name=""  />
         </div>
         <div class="calculator__range">
           <v-slider
@@ -40,7 +40,7 @@
             track-color="#E2E2E2"
             track-fill-color="#E84C4C"
             thumb-color="#E84C4C"
-            :max="100000000"
+            :max="10000000"
           ></v-slider>
         </div>
       </div>
@@ -52,7 +52,7 @@
           <p>В среднем прибыль в месяц составляет 5-7%</p>
         </div>
         <div class="calculator__resultOutput">
-          <p>{{ finalValue }}руб</p>
+          <p>{{ finalValue }} рублей</p>
         </div>
       </div>
     </div>
@@ -60,22 +60,55 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   components: {},
   name: "calculator",
   data: function () {
     return {
-      investValue: 0,
-      reinvestValue: 0,
+      investValue: "",
+      reinvestValue: "",
     };
   },
   computed: {
+    triadReinvest: {
+      get: function () {
+        if (this.reinvestValue !== "") {
+          return this.formatTriad(this.reinvestValue);
+        }
+      },
+      set: function (newValue) {
+        this.reinvestValue = this.parseTriad(newValue);
+      }
+    },
+    triadInvest: {
+      get: function () {
+        if (this.investValue !== "") {
+          return this.formatTriad(this.investValue);
+        }
+      },
+      set: function (newValue) {
+        this.investValue = this.parseTriad(newValue);
+      }
+    },
     finalValue: function () {
-      return Math.floor(
-        (Number(this.investValue) + Number(this.reinvestValue)) * 0.06
+      return (Math.floor(
+        ( Number(this.investValue) + Number(this.reinvestValue)) * 0.06).toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ')
       );
     },
+    
   },
+  methods: {
+    formatTriad(num) {
+      return Number(num)
+        .toString()
+        .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+    },
+    parseTriad(text) {
+      return Number(text.replace(/ /g, ""));
+    },
+    
+  }
 };
 </script>
 
@@ -96,17 +129,17 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -25px;
-      left: -50%;
-      width: 200%;
-      height: 170%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
+    // &::before {
+    //   position: absolute;
+    //   content: "";
+    //   top: -25px;
+    //   left: -50%;
+    //   width: 200%;
+    //   height: 170%;
+    //   border: 2px solid rgba(235, 23, 23, 0.7);
+    //   border-radius: 50%;
+    //   transform: rotate(-4.95deg);
+    // }
   }
 }
 
@@ -163,13 +196,13 @@ export default {
   letter-spacing: -0.015em;
   color: rgba(0, 0, 0, 0.7);
   &::before {
-    content: "10000";
+    content: "10 000";
     position: absolute;
     bottom: 0;
     left: 0;
   }
   &::after {
-    content: "100 млн";
+    content: "10 млн";
     position: absolute;
     bottom: 0;
     right: 0;
@@ -187,15 +220,15 @@ export default {
   margin-bottom: 30px;
   h2 {
     position: relative;
-    &::after {
-      position: absolute;
-      bottom: -12px;
-      left: 0px;
-      content: "";
-      width: 100%;
-      height: 1px;
-      background-color: #eb1717;
-    }
+    // &::after {
+    //   position: absolute;
+    //   bottom: -12px;
+    //   left: 0px;
+    //   content: "";
+    //   width: 100%;
+    //   height: 1px;
+    //   background-color: #eb1717;
+    // }
   }
 }
 .calculator__result {
@@ -213,15 +246,15 @@ export default {
   margin-bottom: 30px;
   h2 {
     position: relative;
-    &::after {
-      position: absolute;
-      bottom: -12px;
-      left: 0px;
-      content: "";
-      width: 100%;
-      height: 1px;
-      background-color: #eb1717;
-    }
+    // &::after {
+    //   position: absolute;
+    //   bottom: -12px;
+    //   left: 0px;
+    //   content: "";
+    //   width: 100%;
+    //   height: 1px;
+    //   background-color: #eb1717;
+    // }
   }
 }
 .calculator__resultMessage {
@@ -244,7 +277,7 @@ export default {
     position: absolute;
     border-radius: 50%;
     background-color: rgba(235, 23, 23, 0.76);
-    transform: translate(-60%, -20%);
+    transform: translate(-90%, -20%);
     left: 0px;
     z-index: -1;
   }
@@ -256,6 +289,12 @@ export default {
   align-items: center;
   justify-content: center;
   box-shadow: inset 0px 5px 5px rgba(142, 142, 142, 0.25);
-  font-size: 20px;
+  font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  .calculator {
+    display: none;
+  }
 }
 </style>

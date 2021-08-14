@@ -21,4 +21,10 @@ export default {
     width: auto;
   }
 }
+
+@media (max-width: 900px) {
+  .road {
+    display: none;
+  }
+}
 </style>

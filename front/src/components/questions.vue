@@ -19,21 +19,23 @@
           id=""
           placeholder="Телефон"
         />
-        <textarea class="form__question" placeholder="Вопрос" />
+        <!-- <textarea class="form__question" placeholder="Вопрос" /> -->
         <div class="form__button">
-          <CusButton :color="'red'" :text="'Получить консультацию'" />
+          <CusButton :noLine="true" :color="'red'" :text="'Получить консультацию'" />
         </div>
-        <input
+        <!-- <input
           type="checkbox"
           class="custom-checkbox"
           id="check"
           name="happy"
           value="yes"
         />
-        <label for="check"
-          >Я соглашаюсь с правилами
-          <a href="#">&nbsp; политики конфиденциальности</a>
-        </label>
+        <label for="check">
+          <p>
+            Я соглашаюсь с правилами
+            <a href="#">&nbsp; политики конфиденциальности</a>
+          </p>
+        </label> -->
       </div>
     </div>
   </div>
@@ -56,6 +58,9 @@ export default {
 <style lang="scss" scoped>
 .questions {
   margin-top: 150px;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .questions__title {
@@ -72,21 +77,11 @@ export default {
     width: auto;
     display: inline;
     position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      top: -10px;
-      left: -70px;
-      width: 120%;
-      height: 150%;
-      border: 2px solid rgba(235, 23, 23, 0.7);
-      border-radius: 50%;
-      transform: rotate(-4.95deg);
-    }
   }
 }
 
 .questions__content {
+  
 }
 
 .form {
@@ -95,11 +90,11 @@ export default {
   border: 3px solid #515151;
   display: flex;
   flex-direction: column;
-  padding: 50px 80px;
+  padding: 100px 80px;
 
   input {
     margin-bottom: 40px;
-    width: 100%;
+
     background: #f6f6f6;
     border-radius: 20px;
     border-style: solid;
@@ -115,7 +110,12 @@ export default {
   }
 }
 
+.form__name {
+  width: 100%;
+}
+
 .form__question {
+  width: 100%;
   height: 200px;
   margin-bottom: 10px;
   width: 100%;
@@ -134,10 +134,11 @@ export default {
 }
 
 .form__button {
-  margin-bottom: 35px;
+  // margin-bottom: 35px;
 }
 
 .form__number {
+  width: 100%;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -193,5 +194,72 @@ export default {
 
 .custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
   border-color: #ffbeb3;
+}
+
+@media (max-width: 900px) {
+  .questions {
+    margin-top: 100px;
+  }
+
+  .questions__title {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+
+    h3 {
+      &::before {
+        top: -10px;
+        left: -5%;
+        width: 100%;
+        height: 150%;
+      }
+    }
+  }
+
+  .form {
+    max-width: 400px;
+    background: #f6f6f6;
+    border: 2px solid #515151;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 20px;
+
+    input {
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border-width: 2px;
+      padding: 10px 8px;
+      font-size: 16px;
+    }
+  }
+
+  .form__question {
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+    padding: 10px 8px;
+    font-size: 16px;
+  }
+
+  .custom-checkbox + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    font-family: Century Gothic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 87.8%;
+    /* or 11px */
+
+    letter-spacing: -0.015em;
+
+    color: #000000;
+    a {
+      color: red;
+    }
+  }
 }
 </style>

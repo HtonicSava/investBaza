@@ -1,7 +1,43 @@
 <template>
-  <div :class="{ 'button-red': color === 'red', button: color != 'red' }">
-    <div v-if="up === false" class="button__body">
-      <button>
+  <div
+    :class="{
+      'button-red': color === 'red',
+      button: color != 'red',
+      disabled: disabled === true,
+    }"
+  >
+
+    <a v-if="anchor" :href="anchor">
+      <div v-if="up === false" class="button__body">
+      <button v-on:click="disabled ? '' : $emit('cus-click')">
+        <svg
+          width="35"
+          height="25"
+          viewBox="0 0 35 25"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M23.1101 0.51257C22.6441 0.0302339 21.8684 0.0302339 21.3861 0.51257C20.92 0.978611 20.92 1.75426 21.3861 2.21921L30.1279 10.961H1.28115C0.608699 10.9621 0.0742188 11.4966 0.0742188 12.169C0.0742188 12.8415 0.608699 13.3933 1.28115 13.3933H30.1279L21.3861 22.1188C20.92 22.6012 20.92 23.3779 21.3861 23.8429C21.8684 24.3252 22.6452 24.3252 23.1101 23.8429L33.9214 13.0316C34.4037 12.5655 34.4037 11.7899 33.9214 11.3249L23.1101 0.51257Z"
+          />
+        </svg>
+      </button>
+      </div>
+    </a>
+
+    <!-- <a v-if="anchor" :href="anchor">
+      <div
+      v-if="up === false"
+      class="button__text"
+      :class="{ noLine: noLine === true }"
+    >
+      <h4>
+        {{ text }}
+      </h4>
+      </div>
+    </a> -->
+
+    <div v-if="up === false && !anchor" class="button__body">
+      <button v-on:click="disabled ? '' : $emit('cus-click')">
         <svg
           width="35"
           height="25"
@@ -15,7 +51,7 @@
       </button>
     </div>
     <div
-      v-if="up === false"
+      v-if="up === false "
       class="button__text"
       :class="{ noLine: noLine === true }"
     >
@@ -23,8 +59,8 @@
         {{ text }}
       </h4>
     </div>
-    <button>
-      <div v-if="up === true" class="button__bodyUp">
+    <button v-if="up === true" v-on:click="scrollUp">
+      <div class="button__bodyUp">
         <svg
           width="25"
           height="35"
@@ -50,9 +86,17 @@ export default {
     text: String,
     up: Boolean,
     noLine: Boolean,
+    disabled: Boolean,
+    anchor: String,
   },
   data: function () {
     return {};
+  },
+  methods: {
+    scrollUp() {
+      // window.scrollTo(0,0);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
 };
 </script>
@@ -76,6 +120,10 @@ export default {
     }
   }
 }
+
+a {
+    color: inherit;
+  }
 
 .button__body {
   width: 86px;
@@ -116,6 +164,7 @@ export default {
 }
 
 .noLine {
+  // cursor: pointer;
   &::after {
     content: none;
   }
@@ -163,6 +212,45 @@ export default {
   .button__text {
     &::after {
       background: #ee3838;
+    }
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+  button {
+    cursor: default;
+    &:hover {
+      box-shadow: 0px 0px 0px rgba(148, 148, 148, 0.41);
+    }
+    &:active {
+      box-shadow: inset 0px 0px 0px rgba(29, 6, 6, 0.25);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .button {
+    font-size: 14px;
+  }
+  .button-red {
+    font-size: 14px;
+    svg {
+      max-width: 20px;
+    }
+  }
+  .button__body {
+    width: 60px;
+    height: 60px;
+    svg {
+      max-width: 20px;
+    }
+  }
+  .button__bodyUp {
+    width: 60px;
+    height: 30px;
+    svg {
+      max-width: 15px;
     }
   }
 }
