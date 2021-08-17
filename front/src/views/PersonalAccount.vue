@@ -5,7 +5,10 @@
       <div class="content">
         <div class="content__top">
           <div class="content__conditions">
-            <p>Имя Фамилия</p>
+            <p>{{user.name}} {{user.surname}}</p>
+          </div>
+          <div class="content__curator">
+            <p>Наставник <span>{{curator.name}} {{curator.surname}}</span></p>
           </div>
           <div class="content__img">
             <!-- <img src="@/assets/img/personal_account/item.png" alt="" /> -->
@@ -41,6 +44,7 @@ import News from "../components/personal_account/news.vue";
 import Sidemenu from "../components/personal_account/sidemenu.vue";
 import Links from "../components/personal_account/links.vue";
 import Botmobilepanel from "../components/personal_account/botmobilepanel.vue";
+import axios from "@/service/axios.js";
 
 export default {
   components: {
@@ -59,6 +63,15 @@ export default {
   },
   data: function () {
     return {
+      authorization: null,
+      user: {
+        name: 'Имя',
+        surname: 'Фамилия',
+      },
+      curator: {
+        name: 'Имя',
+        surname: 'Фамилия',
+      },
       pages: {
         Main: true,
         Verification: false,
@@ -79,7 +92,35 @@ export default {
       }
       this.pages[data.page] = true;
     },
+    getAthorizationFromLocal() {
+      if (localStorage.getItem("authorization") != "undefined"){
+      this.authorization = JSON.parse(localStorage.getItem("authorization"))
+      }
+    },
+    authorizationQuery() {
+      let getQuery = `profile/?authorization=${this.authorization}`;
+      axios.get(getQuery)
+        .then((res) => {
+            console.log(res)
+            this.updateAuthorization(res.data.authorization)
+            this.user.name = res.data.first_name
+            this.user.surname = res.data.last_name
+            this.curator.name = res.data.curator_name
+            this.curator.surname = res.data.curator_surname
+          })
+        .catch((err) => {
+            console.log(err)
+          });
+
+    },
+    updateAuthorization(token) {
+      localStorage.setItem("authorization",JSON.stringify(token))
+    },
   },
+  mounted(){
+    this.getAthorizationFromLocal()
+    this.authorizationQuery()
+  }
 };
 </script>
 
@@ -105,6 +146,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 60px;
 }
 
 .content__img {
@@ -142,9 +184,30 @@ export default {
   color: #000000;
   padding: 19px 14px 20px;
   display: inline-block;
-  margin: 60px 0px 60px 60px;
+  // margin: 60px 0px 60px 60px;
   p {
     margin-bottom: 0px;
+  }
+}
+
+.content__curator {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 76.69%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  
+  // margin: 60px 0px 60px 60px;
+  p {
+    margin-bottom: 0px;
+    
+  }
+  span{
+    padding: 19px 14px 20px;
+    display: inline-block;
+    background: #f6f6f6;
+    margin-left: 8px;
   }
 }
 
@@ -160,12 +223,25 @@ export default {
     padding: 0px 20px 200px;
   }
 
+  .content__top {
+    flex-wrap: wrap;
+    padding: 0px;
+  }
+
   .content__conditions {
     margin: 60px 15px 60px 0px;
   }
 
   .content__img {
     display: block;
+  }
+
+  .content__curator{
+    order: 3;
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 60px;
+    padding-left: 14px;
   }
 }
 </style>

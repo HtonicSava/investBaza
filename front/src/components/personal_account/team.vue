@@ -163,7 +163,7 @@ export default {
     getRefLink () {
       let postQuery = "referal_link/";
       axios.post(postQuery, {
-          authorization:`eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQsImV4cCI6MTYzMzgwODQwN30.MsolCCCtXXIUrs_I7gWdZq61PhOnxKciLWizS3-OS1Q`
+          authorization: this.authorization
         }).then((res) => {
           console.log(res);
           this.reflink = res.data.referal_link

@@ -155,7 +155,7 @@
             />
           </svg>
         </div>
-        <div class="panel__item">
+        <div @click="exit" class="panel__item">
           <svg
             width="15"
             height="15"
@@ -222,6 +222,10 @@ export default {
         page: page,
       });
     },
+    exit(){
+      localStorage.removeItem('authorization')
+      this.$router.push({ name: "Login" });
+    }
   },
 };
 </script>

@@ -46,6 +46,10 @@
           <a href="#">&nbsp; политики конфиденциальности</a>
         </p>
       </label>
+      <router-link to="/registry">
+        <p>Регистрация</p>
+      </router-link>
+      
     </div>
     <div v-else>
       <div class="form__wrapper">
@@ -188,6 +192,9 @@
           <a href="#">&nbsp; политики конфиденциальности</a>
         </p>
       </label>
+      <router-link to="/login">
+        <p>Войти</p>
+      </router-link>
     </div>
   </div>
 </template>
@@ -209,7 +216,8 @@ export default {
   },
   data: function () {
     return {
-      
+      referal_id: null,
+      curator: null,
       log: {
         agreement: false,
         showpas: false,
@@ -247,6 +255,8 @@ export default {
         .then((res) => {
           console.log(res);
           if (res.status === 200) {
+            alert("Вход выполнен успешно");
+            localStorage.setItem("authorization",JSON.stringify(res.data.authorization))
             this.$router.push({ name: "Personal" });
           }
         })
@@ -260,6 +270,7 @@ export default {
       console.log(this.reg);
       axios
         .post(postQuery, {
+          curator: this.curator,
           email: this.reg.email,
           first_name: this.reg.name,
           last_name: this.reg.surname,
@@ -281,6 +292,17 @@ export default {
           alert("Ошибка при регистрации, попробуйте ещё раз");
         });
     },
+    getCuratorId(){
+      let getQuery = `referal_link/?referal_id=${this.referal_id}`;
+      axios.get(getQuery)
+        .then((res) => {
+            console.log(res)
+            this.curator = res.data.id
+          })
+        .catch((err) => {
+            console.log(err)
+          });
+    }
   },
   computed: {
     checkRegButton: function () {
@@ -301,13 +323,25 @@ export default {
     },
   },
   mounted (){
-    console.log(this.$route.query.f_name)
-    console.log(this.$route.query.l_name)
+    this.referal_id = this.$route.query.referal_id
+    this.getCuratorId()
+    console.log(this.$route.query.referal_id)
   }
 };
 </script>
 
 <style lang="scss" scoped>
+
+a{
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  &:hover{
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
 .form {
   max-width: 600px;
   background: #f6f6f6;

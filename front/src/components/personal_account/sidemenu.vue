@@ -23,7 +23,7 @@
           />
         </svg>
       </div>
-      <div class="sidemenu__item">
+      <div @click="exit" class="sidemenu__item">
         <svg
           width="15"
           height="15"
@@ -209,6 +209,10 @@ export default {
       this.$refs.image.style.opacity = 0;
       setTimeout(() => (this.$refs.image.style.opacity = 1), 499);
     },
+    exit(){
+      localStorage.removeItem('authorization')
+      this.$router.push({ name: "Login" });
+    }
   },
 };
 </script>
@@ -239,6 +243,9 @@ export default {
   margin-right: 18px;
   &:last-child {
     margin-right: 28px;
+  }
+  &:active {
+    box-shadow: inset 0px 7px 7px rgba(29, 6, 6, 0.25);
   }
 }
 

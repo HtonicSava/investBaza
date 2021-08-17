@@ -5,13 +5,13 @@
     </div>
     <div class="conditions__items">
       <div class="conditions__item">
-        <p>Вход от десяти тысяч рублей</p>
+        <p>Вход от 10 000 рублей</p>
       </div>
       <div class="conditions__item">
-        <p>от трёхсот тысяч рублей депозит <span>страхуется</span></p>
+        <p>от 300 000 рублей депозит <span>страхуется</span></p>
       </div>
       <div class="conditions__item">
-        <p>Минимальная сумма увеличения десять тысяч рублей</p>
+        <p>Минимальная сумма увеличения 10 000 рублей</p>
       </div>
     </div>
     <div class="conditions__button">
