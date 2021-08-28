@@ -10,12 +10,12 @@
             <h1 class="item__title">Частный детский садик</h1>
             <p class="item__p">Инвестиции в садик - 600 000 рублей</p>
             <p class="item__p">Чистая прибыль - 100 000 рублей</p>
-            <p class="item__p">
-              Большой спрос на детские сады в Крыму 
-            </p>
+            <p class="item__p">Большой спрос на детские сады в Крыму</p>
             <p class="item__p">Нет достойных конкурентов</p>
             <p class="item__p">Быстрая окупаемость</p>
-            <p class="item__p">Бизнесс по подписке - девять месяцев прогнозируемого дохода</p>
+            <p class="item__p">
+              Бизнесс по подписке - девять месяцев прогнозируемого дохода
+            </p>
           </div>
         </Carousel>
       </div>
@@ -26,13 +26,9 @@
         <Carousel :rightimg="true" :photos="photosCofe">
           <div class="item">
             <h1 class="item__title">Кофейня самообслуживания</h1>
-            <p class="item__p">
-              Инвестиции в один аппарат - 350 000 рублей 
-            </p>
+            <p class="item__p">Инвестиции в один аппарат - 350 000 рублей</p>
             <p class="item__p">Чистая прибыль - 40 000 рублей</p>
-            <p class="item__p">
-              Таких аппаратов в Крыму еще нет 
-            </p>
+            <p class="item__p">Таких аппаратов в Крыму еще нет</p>
             <p class="item__p">Нет расходов на сотрудников</p>
             <p class="item__p">Недорогая аренда</p>
             <p class="item__p">Вкусный зерновой кофе</p>
@@ -43,15 +39,9 @@
         <Carousel :photos="photosCars">
           <div class="item">
             <h1 class="item__title">Доходные автомобили</h1>
-            <p class="item__p">
-              Инвестиции в один автомобиль - 400 000 рублей
-              
-            </p>
+            <p class="item__p">Инвестиции в один автомобиль - 400 000 рублей</p>
             <p class="item__p">Чистая прибыль - 30 000 рублей</p>
-            <p class="item__p">
-              Из-за санкций в Крыму нет Яндекс такси 
-              
-            </p>
+            <p class="item__p">Из-за санкций в Крыму нет Яндекс такси</p>
             <p class="item__p">Низкая стоимость авто</p>
             <p class="item__p">Быстрая окупаемость</p>
             <p class="item__p">Управляющая компания страхует угон</p>
@@ -62,16 +52,11 @@
         <Carousel :rightimg="true" :photos="photosProperty">
           <div class="item">
             <h1 class="item__title">Недвижимость</h1>
-            <p class="item__p">
-              Инвестиции в один дом - 4 700 000 рублей 
-              
-            </p>
+            <p class="item__p">Инвестиции в один дом - 4 700 000 рублей</p>
             <p class="item__p">Доход от аренды - 30 000 рублей</p>
-            <p class="item__p">
-              Растет в цене 
-            </p>
-            <p class="item__p">Низкий риск </p>
-            <p class="item__p">Налоговые льготы </p>
+            <p class="item__p">Растет в цене</p>
+            <p class="item__p">Низкий риск</p>
+            <p class="item__p">Налоговые льготы</p>
             <p class="item__p">Нет сложностей со сдачей в аренду</p>
           </div>
         </Carousel>
@@ -80,9 +65,9 @@
         <Carousel :topimg="true" :photos="photosInvestclub">
           <div class="item">
             <h1 class="item__title">OG INVEST CLUB</h1>
-            <p class="item__p">Восемь лет стабильной работы </p>
-            <p class="item__p">83% доходность за 2020 год </p>
-            <p class="item__p">Своя академия трейдеров </p>
+            <p class="item__p">Восемь лет стабильной работы</p>
+            <p class="item__p">83% доходность за 2020 год</p>
+            <p class="item__p">Своя академия трейдеров</p>
             <p class="item__p">Офис в Крыму</p>
           </div>
         </Carousel>
@@ -93,13 +78,11 @@
             <h1 class="item__title">Фондовый рынок</h1>
             <p class="item__p">Портфель собран на Interactive Brokers</p>
             <p class="item__p">
-              Опционная стратегия на базе ETF 
-              фондов с доходность 20-30% в год
+              Опционная стратегия на базе ETF фондов с доходность 20-30% в год
             </p>
             <p class="item__p">Индекс широкого рынка</p>
             <p class="item__p">
-              Спекуляция на акциях с 
-              доходностью 50-80% годовых
+              Спекуляция на акциях с доходностью 50-80% годовых
             </p>
           </div>
         </Carousel>

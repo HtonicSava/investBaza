@@ -24,6 +24,11 @@ const routes = [
     name: "Personal",
     component: () => import("@/views/PersonalAccount.vue"),
   },
+  {
+    path: "/personal_beta",
+    name: "PersonalBeta",
+    component: () => import("@/views/PersonalAccountBeta.vue"),
+  },
 ];
 
 const router = new VueRouter({

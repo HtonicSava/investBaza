@@ -47,7 +47,12 @@
           </div>
         </div>
         <div class="detailed__cardButton">
-          <CusButton @cus-click="redirectToReg" :noLine="true" :text="'ИНВЕСТИРОВАТЬ'" :color="'red'" />
+          <CusButton
+            @cus-click="redirectToReg"
+            :noLine="true"
+            :text="'ИНВЕСТИРОВАТЬ'"
+            :color="'red'"
+          />
         </div>
       </div>
     </div>
@@ -66,10 +71,10 @@ export default {
     return {};
   },
   methods: {
-    redirectToReg(){
-      this.$router.push('Registry');
-    }
-  }
+    redirectToReg() {
+      this.$router.push("Registry");
+    },
+  },
 };
 </script>
 

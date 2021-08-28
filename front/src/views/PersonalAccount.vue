@@ -4,13 +4,21 @@
       <Links />
       <div class="content">
         <div class="content__top">
-          <div class="content__conditions">
-            <p>{{user.name}} {{user.surname}}</p>
+          <div v-if="authorization" class="content__conditions">
+            <p>{{ user.name }} {{ user.surname }}</p>
           </div>
-          <div class="content__curator">
-            <p>Наставник <span>{{curator.name}} {{curator.surname}}</span></p>
+          <div
+            v-if="authorization && curator.name && curator.surname"
+            class="content__curator"
+          >
+            <p>
+              Наставник <span>{{ curator.name }} {{ curator.surname }}</span>
+            </p>
           </div>
-          <div class="content__img">
+          <div v-if="!authorization" class="content__conditions">
+            <p>Войдите в личный кабинет для доступа ко всем функциям</p>
+          </div>
+          <div v-if="authorization" class="content__img">
             <!-- <img src="@/assets/img/personal_account/item.png" alt="" /> -->
           </div>
         </div>
@@ -65,12 +73,12 @@ export default {
     return {
       authorization: null,
       user: {
-        name: 'Имя',
-        surname: 'Фамилия',
+        name: null,
+        surname: null,
       },
       curator: {
-        name: 'Имя',
-        surname: 'Фамилия',
+        name: null,
+        surname: null,
       },
       pages: {
         Main: true,
@@ -93,34 +101,34 @@ export default {
       this.pages[data.page] = true;
     },
     getAthorizationFromLocal() {
-      if (localStorage.getItem("authorization") != "undefined"){
-      this.authorization = JSON.parse(localStorage.getItem("authorization"))
+      if (localStorage.getItem("authorization") != "undefined") {
+        this.authorization = JSON.parse(localStorage.getItem("authorization"));
       }
     },
     authorizationQuery() {
       let getQuery = `profile/?authorization=${this.authorization}`;
-      axios.get(getQuery)
+      axios
+        .get(getQuery)
         .then((res) => {
-            console.log(res)
-            this.updateAuthorization(res.data.authorization)
-            this.user.name = res.data.first_name
-            this.user.surname = res.data.last_name
-            this.curator.name = res.data.curator_name
-            this.curator.surname = res.data.curator_surname
-          })
+          console.log(res);
+          this.updateAuthorization(res.data.authorization);
+          this.user.name = res.data.first_name;
+          this.user.surname = res.data.last_name;
+          this.curator.name = res.data.curator_name;
+          this.curator.surname = res.data.curator_last_name;
+        })
         .catch((err) => {
-            console.log(err)
-          });
-
+          console.log(err);
+        });
     },
     updateAuthorization(token) {
-      localStorage.setItem("authorization",JSON.stringify(token))
+      localStorage.setItem("authorization", JSON.stringify(token));
     },
   },
-  mounted(){
-    this.getAthorizationFromLocal()
-    this.authorizationQuery()
-  }
+  mounted() {
+    this.getAthorizationFromLocal();
+    this.authorizationQuery();
+  },
 };
 </script>
 
@@ -160,8 +168,7 @@ export default {
     max-width: 70px;
     width: auto;
   }
-  &::after{
-    
+  &::after {
     content: "Загрузить фото";
     font-size: 12px;
     font-weight: 700;
@@ -179,7 +186,7 @@ export default {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  line-height: 76.69%;
+  line-height: 100%;
   letter-spacing: -0.04em;
   color: #000000;
   padding: 19px 14px 20px;
@@ -197,13 +204,12 @@ export default {
   line-height: 76.69%;
   letter-spacing: -0.04em;
   color: #000000;
-  
+
   // margin: 60px 0px 60px 60px;
   p {
     margin-bottom: 0px;
-    
   }
-  span{
+  span {
     padding: 19px 14px 20px;
     display: inline-block;
     background: #f6f6f6;
@@ -236,7 +242,7 @@ export default {
     display: block;
   }
 
-  .content__curator{
+  .content__curator {
     order: 3;
     flex-grow: 1;
     width: 100%;

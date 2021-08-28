@@ -7,13 +7,13 @@
         <Investment />
         <Conditions />
         <Creator />
-        <Detailed id="main_detailed"/>
+        <Detailed id="main_detailed" />
         <Calculator />
         <TargetsOfInvestment />
-        <Documents id="main_documents"/>
+        <Documents id="main_documents" />
         <Plan />
         <Road />
-        <Reviews id="main_reviews"/>
+        <Reviews id="main_reviews" />
         <Questions />
         <Inst />
         <Map />

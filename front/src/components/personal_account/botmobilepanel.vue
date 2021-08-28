@@ -222,10 +222,10 @@ export default {
         page: page,
       });
     },
-    exit(){
-      localStorage.removeItem('authorization')
+    exit() {
+      localStorage.removeItem("authorization");
       this.$router.push({ name: "Login" });
-    }
+    },
   },
 };
 </script>

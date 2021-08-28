@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 import router from "./router";
-import 'vue-search-select/dist/VueSearchSelect.css'
+import "vue-search-select/dist/VueSearchSelect.css";
 
 Vue.config.productionTip = false;
 

@@ -138,7 +138,7 @@ export default {
   align-items: center;
   font-family: Century Gothic;
   font-size: 25px;
-  
+
   button {
     width: 40px;
     height: 40px;
@@ -216,10 +216,10 @@ export default {
     padding-bottom: 25px;
   }
   .pack__button {
-  display: flex;
-  align-items: center;
-  font-family: Century Gothic;
-  font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-family: Century Gothic;
+    font-size: 18px;
   }
 }
 </style>

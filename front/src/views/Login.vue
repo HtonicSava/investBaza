@@ -22,6 +22,10 @@ export default {
 // font-family: "Century Gothic";
 // font-family: "Padauk";
 
+.main {
+  background: #25253a;
+}
+
 .container {
   max-width: 1220px;
   padding: 0px 10px;

@@ -147,9 +147,7 @@
           Тех. поддержка 
         </p> -->
       </div>
-      <div class="sidemenu__linksContainer">
-
-      </div>
+      <div class="sidemenu__linksContainer"></div>
     </div>
   </div>
 </template>
@@ -209,10 +207,10 @@ export default {
       this.$refs.image.style.opacity = 0;
       setTimeout(() => (this.$refs.image.style.opacity = 1), 499);
     },
-    exit(){
-      localStorage.removeItem('authorization')
+    exit() {
+      localStorage.removeItem("authorization");
       this.$router.push({ name: "Login" });
-    }
+    },
   },
 };
 </script>
@@ -262,16 +260,16 @@ export default {
   justify-content: center;
   position: relative;
   text-align: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
-  &::before{
+  &::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    content: 'Загрузить фото';
+    content: "Загрузить фото";
   }
   img {
     max-width: 100%;

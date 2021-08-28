@@ -12,7 +12,7 @@
           <p>Общий доход</p>
         </div>
         <div class="main__lilitem">
-          <p>Колличество партнёров</p>
+          <p>Количество партнёров</p>
         </div>
         <div class="main__lilitem">
           <p>Общий оборот</p>

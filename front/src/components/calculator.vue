@@ -12,7 +12,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="triadInvest" name=""  />
+          <input v-model="triadInvest" name="" />
         </div>
         <div class="calculator__range">
           <v-slider
@@ -32,7 +32,7 @@
           <p>Введите сумму</p>
         </div>
         <div class="calculator__input">
-          <input v-model="triadReinvest" name=""  />
+          <input v-model="triadReinvest" name="" />
         </div>
         <div class="calculator__range">
           <v-slider

@@ -8,7 +8,7 @@
     </div>
     <div class="verification__items">
       <div class="verification__item">
-       <v-text-field
+        <v-text-field
           :rules="[rules.required]"
           v-model="number"
           outlined
@@ -93,10 +93,8 @@
       </div>
       <!-- <div class="verification__item">
       </div> -->
-
     </div>
     <div class="verification__download">
-
       <h3>Загрузите фотографию, на которой видно ваше лицо и паспорт</h3>
       <div class="verification__downloadItems">
         <v-file-input
@@ -118,8 +116,7 @@
           class="download"
         ></v-file-input>
       </div>
-      
-    </div>  
+    </div>
     <CusButton :color="'red'" :noLine="true" :text="'Сохранить'" />
     <!-- <div class="verification__img">
       <img src="@/assets/img/personal_account/verification/item1.png" alt="" />
@@ -128,13 +125,11 @@
 </template>
 
 <script>
-
 import CusButton from "../button.vue";
-
 
 export default {
   components: {
-    CusButton
+    CusButton,
   },
   name: "verification",
   data: function () {
@@ -186,23 +181,23 @@ export default {
   justify-content: center;
 }
 
-.verification__download{
+.verification__download {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   // padding: 0px 20px;
-  .download{
+  .download {
     // max-width: 280px;
   }
-  h3{
+  h3 {
     font-size: 20px;
     margin-bottom: 40px;
   }
 }
 
-.verification__downloadItems{
+.verification__downloadItems {
   display: grid;
   column-gap: 10px;
   width: 100%;
@@ -210,7 +205,6 @@ export default {
   // column-gap: 50px;
   justify-items: center;
   justify-content: center;
-
 }
 
 .verification__item {
@@ -253,14 +247,12 @@ export default {
     margin-bottom: 50px;
   }
 
-  .verification__download{
-
-
-  h3{
-    font-size: 14px;
-    margin-bottom: 30px;
+  .verification__download {
+    h3 {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
   }
-}
 
   .verification__items {
     // display: grid;

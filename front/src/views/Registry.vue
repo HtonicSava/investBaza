@@ -24,6 +24,7 @@ export default {
 
 .main {
   padding: 200px 0px;
+  background: #25253a;
 }
 
 .container {
@@ -38,6 +39,6 @@ export default {
 }
 
 .RegForm {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 </style>

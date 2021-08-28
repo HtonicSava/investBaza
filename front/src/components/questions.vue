@@ -21,7 +21,11 @@
         />
         <!-- <textarea class="form__question" placeholder="Вопрос" /> -->
         <div class="form__button">
-          <CusButton :noLine="true" :color="'red'" :text="'Получить консультацию'" />
+          <CusButton
+            :noLine="true"
+            :color="'red'"
+            :text="'Получить консультацию'"
+          />
         </div>
         <!-- <input
           type="checkbox"
@@ -81,7 +85,6 @@ export default {
 }
 
 .questions__content {
-  
 }
 
 .form {

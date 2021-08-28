@@ -15,7 +15,12 @@
       </div>
     </div>
     <div class="conditions__button">
-      <CusButton @cus-click="redirectToReg" :noLine="true" :color="'red'" :text="'ИНВЕСТИРОВАТЬ'" />
+      <CusButton
+        @cus-click="redirectToReg"
+        :noLine="true"
+        :color="'red'"
+        :text="'ИНВЕСТИРОВАТЬ'"
+      />
     </div>
   </div>
 </template>
@@ -32,10 +37,10 @@ export default {
     return {};
   },
   methods: {
-    redirectToReg(){
-      this.$router.push('Registry');
-    }
-  }
+    redirectToReg() {
+      this.$router.push("Registry");
+    },
+  },
 };
 </script>
 
@@ -85,7 +90,6 @@ export default {
   color: #000000;
   padding: 0px 60px;
   p {
-    
     margin-bottom: 0px;
   }
   &:nth-child(1) {
@@ -123,14 +127,13 @@ export default {
     }
   }
   .conditions__items {
-    
   }
   .conditions__item {
     font-size: 16px;
     flex-basis: 280px;
     &:nth-child(1) {
-    padding: 0px 80px;
-  }
+      padding: 0px 80px;
+    }
   }
   .conditions__button {
   }
