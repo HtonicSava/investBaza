@@ -98,6 +98,8 @@ p {
 @import url("./assets/fonts/CenturyGothic/stylesheet.css");
 @import url("./assets/fonts/Padauk/stylesheet.css");
 @import url("./assets/fonts/MuseoSans/stylesheet.css");
+@import url("./assets/fonts/PTSerif/stylesheet.css");
+@import url("./assets/fonts/Georgia/stylesheet.css");
 
 body {
   /* -webkit-touch-callout: none;

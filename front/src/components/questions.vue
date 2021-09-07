@@ -27,19 +27,6 @@
             :text="'Получить консультацию'"
           />
         </div>
-        <!-- <input
-          type="checkbox"
-          class="custom-checkbox"
-          id="check"
-          name="happy"
-          value="yes"
-        />
-        <label for="check">
-          <p>
-            Я соглашаюсь с правилами
-            <a href="#">&nbsp; политики конфиденциальности</a>
-          </p>
-        </label> -->
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@
             <h4>Паспорт</h4>
           </div>
           <div class="body__input">
-            <input type="text" name="" placeholder="Серия и номер" id="" />
+            <input v-model="passport" type="text" name="" placeholder="Серия и номер" id="" />
           </div>
         </div>
         <div class="body__issued">
@@ -18,13 +18,13 @@
             <h4>Выдан</h4>
           </div>
           <div class="body__input">
-            <input type="text" name="" placeholder="Кем выдан" id="" />
+            <input v-model="passport_out" type="text" name="" placeholder="Кем выдан" id="" />
           </div>
           <div class="body__input">
-            <input type="text" name="" placeholder="Код подразделения" id="" />
+            <input v-model="passport_code" type="text" name="" placeholder="Код подразделения" id="" />
           </div>
           <div class="body__input">
-            <input type="text" name="" placeholder="Дата выдачи" id="" />
+            <input v-model="passport_date" type="text" name="" placeholder="Дата выдачи" id="" />
           </div>
         </div>
         <div class="body__adress">
@@ -33,6 +33,7 @@
           </div>
           <div class="body__input">
             <textarea
+              v-model="passport_address"
               name=""
               style="resize: none"
               placeholder="Область, город, населнный пункт..."
@@ -47,7 +48,7 @@
             Загрузите фотографию или цветной скан паспорта. Два разворота —
             основной разворот с именем и фотографией и разворот с пропиской
           </p>
-          <ibButton class="verification__button">
+          <!-- <ibButton class="verification__button">
             <svg
               width="13"
               height="15"
@@ -61,8 +62,30 @@
               />
             </svg>
             <p>Загрузить основной разворот</p>
-          </ibButton>
-          <ibButton class="verification__button">
+          </ibButton> -->
+          <div class="form__wrapper">
+          <v-file-input
+            ref="file"
+            outlined
+            dark
+            single-line
+            placeholder="Загрузить основной разворот"
+            color="#F3C68E"
+            truncate-length="8"
+          ></v-file-input>
+          <!-- <input type="file" ref="file" v-on:change="handleFileUpload()"/>
+          <input type="file" ref="filee" v-on:change="handleFileUpload2()"/> -->
+          <v-file-input
+            ref="filee"
+            outlined
+            dark
+            single-line
+            placeholder="Загрузить разворот с пропиской"
+            color="#F3C68E"
+            truncate-length="8"
+          ></v-file-input>
+          </div>
+          <!-- <ibButton class="verification__button">
             <svg
               width="13"
               height="15"
@@ -76,18 +99,21 @@
               />
             </svg>
             <p>Загрузить разворот с пропиской</p>
-          </ibButton>
+          </ibButton> -->
         </div>
         <div class="body_inn">
           <div class="body__title">
             <h4>ИНН</h4>
           </div>
           <div class="body__input">
-            <input type="text" name="" placeholder="Введите ИНН" id="" />
+            <input v-model="inn" type="text" name="" placeholder="Введите ИНН" id="" />
           </div>
-          <ibButton class="verification__button">
+          <ibButton @callback="submit" class="verification__button">
             <p>Сохранить</p>
           </ibButton>
+        </div>
+        <div class="body__status">
+          <p>Статус верификации: <span>{{statusName[status]}}</span> </p>
         </div>
       </div>
     </div>
@@ -96,15 +122,154 @@
 
 <script>
 import ibButton from "../ibButton.vue";
+import axios from "@/service/axios.js";
 
 export default {
   name: "verification",
   components: { ibButton },
-  data: function () {
-    return {};
+  props: {
+    id: Number,
   },
-  methods: {},
+  data: function () {
+    return {
+      statusName: {
+        'none':"не загружено",
+        'process':"в процессе",
+        'denied':"не пройдена",
+        'approved':"подтверждено",
+
+      },
+      status: null,
+      passport: null,
+      passport_out: null,
+      passport_code: null,
+      passport_date: null,
+      passport_address: null,
+      passport_photo_main: '',
+      passport_photo: '',
+      inn: null,
+      authorization: null,
+    };
+  },
+  methods: {
+    verificationStatusQuery() {
+      this.getAthorizationFromLocal();
+      let getQuery = `verificate_data/?authorization=${this.authorization}`;
+      axios
+        .get(getQuery)
+        .then((res) => {
+          console.log(res);
+          this.status = res.data.status
+          console.log(this.status);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getAthorizationFromLocal() {
+      if (localStorage.getItem("authorization") != "undefined") {
+        this.authorization = JSON.parse(localStorage.getItem("authorization"));
+      }
+    },
+    handleFileUpload(){
+      this.passport_photo_main = this.$refs.file.files[0];
+      // this.passport_photo = this.$refs.file.files[1];
+    },
+    handleFileUpload2(){
+      this.passport_photo = this.$refs.filee.files[0];
+      // this.passport_photo = this.$refs.file.files[1];
+    },
+    submit(){
+      // let postQuery = "verificate_data/";
+      // let formData = new FormData();
+      // console.log(formData);
+      // formData.append("id", this.id);
+      // formData.append("passport", this.passport);
+      // formData.append("passport_out", this.passport_out);
+      // formData.append("passport_code", this.passport_code);
+      // formData.append("passport_date", this.passport_date);
+      // formData.append("passport_address", this.passport_address);
+      // formData.append("inn", this.inn);
+      // formData.append("passport_photo_main", this.passport_photo_main);
+      // formData.append("passport_photo", this.passport_photo)
+      // console.log(formData)
+    //   axios
+    //     .post(postQuery, formData,{
+    //       // id: 21,
+    //       // passport: this.passport,
+    //       // passport_out: this.passport_out,
+    //       // passport_code: this.passport_code,
+    //       // passport_date: this.passport_date,
+    //       // passport_address: this.passport_address,
+    //       // inn: this.inn,
+    //       headers: {
+    //                 'Content-Type': 'multipart/form-data'
+    //             }
+
+    //     })
+    //     .then((res) => {
+    //       console.log(res);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
+      // axios.post(postQuery, {
+      //     id: this.id,
+      //     passport: this.passport,
+      //     passport_out: this.passport_out,
+      //     passport_code: this.passport_code,
+      //     passport_date: this.passport_date,
+      //     passport_address: this.passport_address,
+      //     inn: this.inn,
+      //     // passport_photo: formData,
+      //     passport_photo: this.passport_photo,
+      //     passport_photo_main: this.passport_photo_main,
+          
+      //   },
+      //   {
+      //     headers: {
+      //       'Content-Type': 'multipart/form-data'
+      //     }
+      //   })
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+      console.log(this.$refs.file.$refs.input.files[0], this.$refs.filee.$refs.input.files[0])
+      this.passport_photo_main = this.$refs.file.$refs.input.files[0];
+      this.passport_photo = this.$refs.filee.$refs.input.files[0];
+      let formData = new FormData();
+      formData.append("user", this.id);
+      formData.append("passport", this.passport);
+      formData.append("passport_out", this.passport_out);
+      formData.append("passport_code", this.passport_code);
+      formData.append("passport_date", this.passport_date);
+      formData.append("passport_address", this.passport_address);
+      formData.append("inn", this.inn);
+      formData.append("passport_photo_main", this.passport_photo_main);
+      formData.append("passport_photo", this.passport_photo)
+
+      let requestOptions = {
+        method: 'POST',
+        body: formData,
+      };
+
+      fetch("http://188.225.47.84:8000/api/verificate_data/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result)).then(
+          this.verificationStatusQuery()
+        )
+        .catch(error => console.log('error', error));
+    }
+  },
   computed: {},
+  mounted() {
+    // this.submit()
+    this.verificationStatusQuery()
+  }
 };
 </script>
 
@@ -128,7 +293,7 @@ export default {
 .body {
   display: grid;
   grid-template-areas:
-    "passport ."
+    "passport status"
     "passport scan"
     "issued scan"
     "issued scan"
@@ -230,6 +395,19 @@ export default {
   grid-area: inn;
 }
 
+.body__status{
+  grid-area: status;
+  font-family: "Museo Sans Cyrl 500";
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  color: #f3c68e;
+  text-shadow: 0px 0px 27.4444px rgb(255 216 132 / 60%);
+  // margin-bottom: 22px;
+  span{
+    color: #ffffff;
+  }
+}
+
 @media (max-width: 1024px) {
   .body {
     display: grid;
@@ -255,7 +433,10 @@ export default {
       "."
       "inn"
       "inn"
-      "inn";
+      "inn"
+      "."
+      "status"
+      ;
     column-gap: 65px;
     grid-template-columns: minmax(300px, 1fr);
     grid-auto-rows: 60px;

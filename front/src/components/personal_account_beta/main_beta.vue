@@ -15,7 +15,7 @@
             </p>
           </div>
         </div>
-        <ibButton class="main__button">
+        <!-- <ibButton class="main__button">
           <svg
             width="20"
             height="21"
@@ -33,8 +33,8 @@
             />
           </svg>
           <p>Пополнить баланс</p>
-        </ibButton>
-        <ibButton class="main__button">
+        </ibButton> -->
+        <!-- <ibButton class="main__button">
           <svg
             width="33"
             height="34"
@@ -49,7 +49,7 @@
           </svg>
 
           <p>Вывести средства</p>
-        </ibButton>
+        </ibButton> -->
       </div>
     </div>
   </div>

@@ -58,12 +58,10 @@
                 </defs>
               </svg>
             </div>
-            <!-- {{user.name}} {{user.surname}} -->
             {{ user.name }} {{ user.surname }}
           </div>
           <div v-if="curator.name" class="profile__curator">
             <p>Ваш пригласитель:</p>
-            <!-- {{curator.name}} {{curator.surname}} -->
             <p @click="changePage(pages[6].name)">
               <span>{{ curator.name }} {{ curator.surname }}</span>
             </p>
@@ -165,7 +163,7 @@
             :class="{ 'menu__item-active': pages[5].view }"
           >
             <img src="@/assets/img/sidebar_beta/support.svg" alt="" />
-            <p>Техничсекая поддержка</p>
+            <p>Техническая поддержка</p>
           </div>
         </div>
       </div>

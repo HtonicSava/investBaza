@@ -43,7 +43,7 @@
         </v-navigation-drawer>
 
         <ibMain v-if="pages[0].view" />
-        <verification v-if="pages[1].view" />
+        <verification :id="user.id" v-if="pages[1].view" />
         <investment v-if="pages[2].view" />
         <team v-if="pages[3].view" />
         <profile :profile="user" v-if="pages[4].view" />
@@ -113,6 +113,7 @@ export default {
       ],
       authorization: null,
       user: {
+        id: null,
         name: null,
         surname: null,
         phone: null,
@@ -156,6 +157,7 @@ export default {
         .then((res) => {
           console.log(res);
           this.updateAuthorization(res.data.authorization);
+          this.user.id = res.data.id
           this.user.name = res.data.first_name;
           this.user.surname = res.data.last_name;
           this.user.country = res.data.country;

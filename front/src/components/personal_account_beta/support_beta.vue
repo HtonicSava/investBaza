@@ -168,7 +168,7 @@ export default {
 .chat {
   // width: 100%;
   display: flex;
-  max-width: 600px;
+  max-width: 900px;
   margin: auto;
 }
 .sidebar {
