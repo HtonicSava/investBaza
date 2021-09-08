@@ -31,6 +31,7 @@
           class="mobsidebar"
           v-model="drawer"
           absolute
+          app
           width="320"
           temporary
         >
@@ -157,7 +158,7 @@ export default {
         .then((res) => {
           console.log(res);
           this.updateAuthorization(res.data.authorization);
-          this.user.id = res.data.id
+          this.user.id = res.data.id;
           this.user.name = res.data.first_name;
           this.user.surname = res.data.last_name;
           this.user.country = res.data.country;
@@ -204,9 +205,25 @@ export default {
 <style lang="scss" scoped>
 // font-family: "Century Gothic";
 // font-family: "Padauk";
+
+
+
 .main {
   background: #101020;
   position: relative;
+  &::-webkit-scrollbar {
+    /* 1 - скроллбар */
+    width: 5px;
+    // height: 4px;
+    background-color: #10102088;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #f3c68e;
+    height: 68px;
+  }
 }
 
 .container {
@@ -223,6 +240,19 @@ export default {
   padding-right: 50px;
   padding-top: 70px;
   border-left: 2px solid rgba($color: #ffffff, $alpha: 0.05);
+  &::-webkit-scrollbar {
+    /* 1 - скроллбар */
+    width: 5px;
+    // height: 4px;
+    background-color: #10102088 ;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #f3c68e;
+    height: 68px;
+  }
 }
 
 .content__mobmenu {
@@ -231,6 +261,19 @@ export default {
 }
 
 .mobsidebar {
+  &::-webkit-scrollbar {
+    /* 1 - скроллбар */
+    width: 5px;
+    // height: 4px;
+    background-color: #10102088;
+    border-radius: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #f3c68e;
+    height: 68px;
+  }
 }
 
 @media (max-width: 1024px) {

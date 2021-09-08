@@ -21,11 +21,9 @@
         />
         <textarea class="form__question" placeholder="Вопрос" />
         <div class="form__button">
-            <IbButton>
-                <p>
-                    Получить консультацию
-                </p>
-            </IbButton>
+          <IbButton>
+            <p>Получить консультацию</p>
+          </IbButton>
         </div>
       </div>
     </div>
@@ -33,13 +31,12 @@
 </template>
 
 <script>
-import IbButton from '../ibButton.vue';
-
+import IbButton from "../ibButton.vue";
 
 export default {
   name: "questions",
   components: {
-    IbButton
+    IbButton,
   },
   data: function () {
     return {};
@@ -56,19 +53,18 @@ export default {
 }
 
 .questions__title {
-    font-family: PT Serif;
-    font-style: normal;
-    font-weight: bold;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 33.5287px;
-    margin-bottom: 67px;
+  font-family: PT Serif;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  font-size: 33.5287px;
+  margin-bottom: 67px;
 }
 
 .questions__content {
-    display: flex;
-    justify-content: center;
-    
+  display: flex;
+  justify-content: center;
 }
 
 .form {
@@ -76,7 +72,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
-//   padding: 100px 80px;
+  //   padding: 100px 80px;
 
   input {
     margin-bottom: 35px;
@@ -92,7 +88,7 @@ export default {
     letter-spacing: -0.025em;
     color: rgba(0, 0, 0, 0.7);
     &:focus {
-      border-color:#f3c68e;
+      border-color: #f3c68e;
     }
   }
 }
@@ -112,20 +108,20 @@ export default {
   border-width: 3px;
   border-color: #515151;
   padding: 30px 40px;
-    background: #f6f6f6;
-    border-radius: 20px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #515151;
-    padding: 30px 40px;
-    font-family: "Museo Sans Cyrl 500";
-    font-size: 16.8787px;
-    letter-spacing: -0.025em;
-    color: rgba(0, 0, 0, 0.7);
-    margin-bottom: 35px;
-    &:focus {
-      border-color:#f3c68e;
-    }
+  background: #f6f6f6;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #515151;
+  padding: 30px 40px;
+  font-family: "Museo Sans Cyrl 500";
+  font-size: 16.8787px;
+  letter-spacing: -0.025em;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 35px;
+  &:focus {
+    border-color: #f3c68e;
+  }
 }
 
 .form__button {
@@ -143,7 +139,6 @@ export default {
     -moz-appearance: textfield;
   }
 }
-
 
 @media (max-width: 600px) {
   .questions {
@@ -189,6 +184,5 @@ export default {
     padding: 10px 8px;
     font-size: 16px;
   }
-
 }
 </style>

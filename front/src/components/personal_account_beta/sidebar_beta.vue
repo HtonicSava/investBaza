@@ -175,6 +175,11 @@
           <p>Вывести средства</p>
         </ibButton>
       </div>
+      <div class="sidebar__back">
+        <router-link to="/">
+              <p>Вернуться на главную</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -270,19 +275,27 @@ export default {
 // font-family: "Century Gothic";
 // font-family: "Padauk";
 
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+}
+
 .sidebar {
-  height: 100%;
+  min-height: 100%;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
   padding-top: 40px;
   padding-left: 15px;
   background: #101020;
   p {
     margin-bottom: 0px;
   }
+
 }
 .sidebar__container {
 }
 .sidebar__profile {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .profile {
   display: flex;
@@ -409,7 +422,7 @@ export default {
 }
 
 .sidebar__menu {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .menu {
   font-family: "Museo Sans Cyrl 300";
@@ -452,7 +465,19 @@ export default {
 }
 
 .sidebar__button {
-  margin-bottom: 29px;
+  margin-bottom: 12px;
+}
+
+.sidebar__back{
+  color: #f3c68e;
+  cursor: pointer;
+  text-align: center;
+  a{
+    color: inherit;
+    &:visited{
+      color: inherit;
+    }
+  }
 }
 
 @media (max-width: 1024px) {
